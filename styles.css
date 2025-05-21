@@ -1,0 +1,392 @@
+/* Reset some default styles */
+body {
+  margin: 0; /* Remove all margins */
+  padding: 20px; /* Add padding to the body */
+  font-family: "Arial", sans-serif; /* Set a default font */
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Style the header */
+header {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: #800000; /* Maroon */
+  background-color: #f5f5f5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 6px; /* Add padding for better spacing */
+
+}
+
+.header-paragraph {
+  font-size: 32px; /* Adjust font size as needed */
+  font-weight: normal; /* Or use bold for a stronger contrast */
+  color: #555555; /* Darker grey for better readability */
+  margin: 0;
+}
+
+/* Style the navigation */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  background-color: #4285F4; /* Material Blue 700 */
+  padding: 15px 0;
+  border-radius: 30px; /* Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+nav li {
+  margin: 0 15px; /* Adjust spacing as needed */
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 15px; /* Add padding for a larger clickable area */
+  border-radius: 20px; /* Rounded corners for links */
+  transition: background-color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+nav a:hover {
+  background-color: #3366cc; /* Darker shade on hover */
+}
+
+.imageandaboutmecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: mintcream;
+  padding: 2px; /* Add padding for better spacing */
+}
+
+/* Style the right column (Image) */
+.portfolio-image {
+  flex: 1;
+  max-width: 400px; /* Use max-width for better responsiveness */
+  height: auto;
+  margin: 30px auto;
+  border: 2px solid purple;
+  border-radius: 20px; /* Slightly smaller border radius for a more modern look */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); /* Use rgba for a more subtle shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.portfolio-image:hover {
+  border: 2px solid #008080; /* Teal border on hover */
+  transform: scale(1.05); /* Slightly smaller scale for a more subtle effect */
+  background-color: #f2f2f2; /* Lighter background color on hover */
+}
+
+.about-me {
+  flex: 1;
+  padding: 33px; 
+  background-color: #f2f2f2; /* Light grey background for better readability */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+.about-me p {
+  font-size: 18px; /* Adjust font size as needed */
+  line-height: 1.5;
+  margin-bottom: 4px;
+  color: #555555; /* Darker grey for better contrast */
+}
+
+.educationandskillscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #f5f5f5; /* Lighter background color for better readability */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+/* Style the sections */
+section {
+  padding: 20px;
+}
+
+.education {
+  flex: 1;
+  padding: 20px;
+  background-color: #f2f2f2; /* Light grey background for better readability */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+.skills {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light grey background for better readability */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+.skills li {
+  list-style: none;
+  margin-bottom: 10px;
+  color: #333; /* Darker grey for better contrast */
+}
+
+/* Style for each education item */
+.education-item {
+  margin-bottom: 15px;
+  border-left: 3px solid #777; /* Darker grey border for better visibility */
+  padding-left: 10px;
+}
+
+.education-item h3 {
+  color: #007bff; /* Blue for a more modern look */
+}
+
+.education-date {
+  font-style: italic;
+  color: #777; /* Lighter grey for a subtle emphasis */
+}
+/* Style the project boxes */
+.project {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+.workexandrecognitioncontainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F0F0F0; /* Lighter grey background for better readability */
+  padding: 20px;
+}
+
+/* Style for the Work Experience section */
+.work-experience {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5; /* Lighter grey background for better readability */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+/* Style for each work entry */
+.work-entry {
+  margin-bottom: 20px;
+}
+
+.work-entry h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #007bff; /* Blue for a more modern look */
+}
+
+.company {
+  color: #333;
+}
+
+.date {
+  font-style: italic;
+  color: #777; /* Lighter grey for a subtle emphasis */
+}
+
+.responsibilities {
+  margin-top: 10px;
+}
+
+.responsibilities li {
+  list-style-type: disc;
+  margin-left: 20px; /* Indent list items for better readability */
+}
+
+/* Style for the Awards and Achievements section */
+.award-list .award-title {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.awards {
+  background-color: #F0F0F0; /* Lighter grey background for better readability */
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.awards h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #007bff; /* Blue for a more modern look */
+}
+
+.award-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Style for each award entry */
+.award-list li {
+  list-style: none;
+  margin-bottom: 15px;
+  border-left: 3px solid #777; /* Darker grey border for better visibility */
+  padding-left: 10px;
+}
+
+.award-list h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #007bff; /* Blue for a more modern look */
+}
+
+.award-details {
+  color: #555555; /* Darker grey for better contrast */
+  font-size: 14px;
+}
+
+.award-date {
+  font-style: italic;
+  color: #777; /* Lighter grey for a subtle emphasis */
+}
+
+.award-title {
+  cursor: pointer;
+  color: #007bff; /* Blue for a more modern look */
+  text-decoration: none; /* Remove underline */
+  margin-bottom: 0.5rem;
+}
+
+.award-title:hover {
+  background-color: #eee;
+}
+
+#certificateWindow {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for better visibility */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 9999; /* Ensure it appears above other elements */
+  justify-content: center;
+  align-items: center;
+}
+
+#certificateImage {
+  max-width: 80%; /* Adjust as needed */
+  max-height: 80%; /* Adjust as needed */
+  margin: 0; /* Remove margin for better centering */
+  display: block;
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+.contact {
+  background-color: #F0F0F0; /* Lighter grey background for better readability */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+}
+
+.contact p {
+  font-size: 18px;
+  color: #555555; /* Darker grey for better contrast */
+  margin-bottom: 15px;
+}
+
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-list li {
+  margin-bottom: 0;
+}
+
+.contact-list a {
+  text-decoration: none;
+  color: #007bff; /* Blue for a more modern look */
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-list a:hover {
+  transform: scale(1.1);
+}
+
+.social-logo {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+/* Style the footer */
+footer {
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #666;
+  position: relative; /* For positioning the copyright text */
+}
+
+footer p {
+  margin: 0;
+}
+
+footer .copyright {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  opacity: 0.7; /* Subtle opacity for a less prominent look */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .imageandaboutmecontainer {
+    flex-direction: column;
+  }
+
+  .portfolio-image {
+    width: 100%;
+    margin-bottom: 20px; /* Add margin for spacing */
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    background-color: #333; /* Darker background for better contrast */
+    border-radius: 10px; /* Rounded corners for a more modern look */
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  nav a {
+    color: #fff; /* White text for better contrast */
+  }
+}
