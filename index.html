@@ -106,8 +106,10 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
+        <!-- Mobile Nav Overlay -->
+        <div id="mobileOverlay" class="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 z-30 hidden transition-opacity duration-300"></div>
         <!-- Mobile Nav -->
-        <div id="mobileMenu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold text-gray-700 hidden">
+        <div id="mobileMenu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold text-gray-700 hidden transition-transform duration-300">
             <button id="navClose" class="absolute top-6 right-8 text-3xl text-blue-600 focus:outline-none" aria-label="Close navigation menu">
                 <i class="fas fa-times"></i>
             </button>
@@ -415,14 +417,21 @@
         // Mobile nav toggle
         const navToggle = document.getElementById('navToggle');
         const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
         const navClose = document.getElementById('navClose');
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            mobileOverlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
         function closeMobileMenu() {
             mobileMenu.classList.add('hidden');
+            mobileOverlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
         }
-        navToggle.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-        });
+        navToggle.addEventListener('click', openMobileMenu);
         navClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
         // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
