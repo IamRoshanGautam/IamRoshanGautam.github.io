@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GCV638XMFF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GCV638XMFF');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roshan Gautam - Senior Software Quality Assurance Automation Engineer & Aspiring Owner</title>
@@ -80,19 +89,35 @@
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg shadow-lg border-b border-gradient-to-r from-blue-500 via-green-400 to-blue-500" id="mainNav">
-        <div class="container mx-auto px-6 py-5">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-3xl font-extrabold gradient-text transition-transform duration-200 hover:scale-110 drop-shadow-lg">Rosh</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">My Story</a>
-                    <a href="#experience" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Experience</a>
-                    <a href="#education" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Education</a>
-                    <a href="#certifications" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Certifications</a>
-                    <a href="#blog" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Blog</a>
-                    <a href="#life" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Personal Side</a>
-                    <a href="#contact" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Contact</a>
-                </div>
+        <div class="container mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-extrabold gradient-text transition-transform duration-200 hover:scale-110 drop-shadow-lg">Rosh</a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">My Story</a>
+                <a href="#experience" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Experience</a>
+                <a href="#education" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Education</a>
+                <a href="#certifications" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Certifications</a>
+                <a href="#blog" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Blog</a>
+                <a href="#life" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Personal Side</a>
+                <a href="#contact" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Contact</a>
             </div>
+            <!-- Hamburger for mobile -->
+            <button id="navToggle" class="md:hidden text-3xl text-blue-600 focus:outline-none" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Nav -->
+        <div id="mobileMenu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold text-gray-700 hidden">
+            <button id="navClose" class="absolute top-6 right-8 text-3xl text-blue-600 focus:outline-none" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#about" class="hover:text-blue-600" onclick="closeMobileMenu()">My Story</a>
+            <a href="#experience" class="hover:text-blue-600" onclick="closeMobileMenu()">Experience</a>
+            <a href="#education" class="hover:text-blue-600" onclick="closeMobileMenu()">Education</a>
+            <a href="#certifications" class="hover:text-blue-600" onclick="closeMobileMenu()">Certifications</a>
+            <a href="#blog" class="hover:text-blue-600" onclick="closeMobileMenu()">Blog</a>
+            <a href="#life" class="hover:text-blue-600" onclick="closeMobileMenu()">Personal Side</a>
+            <a href="#contact" class="hover:text-blue-600" onclick="closeMobileMenu()">Contact</a>
         </div>
     </nav>
 
@@ -108,16 +133,16 @@
                         <i class="fas fa-code"></i>
                     </div>
                 </div>
-                <h1 class="text-5xl font-bold mb-4 gradient-text">Roshan Gautam</h1>
-                <p class="text-xl text-gray-600 mb-8">Senior Software Quality Assurance Automation Engineer & Aspiring Owner
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Roshan Gautam</h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">Senior Software Quality Assurance Automation Engineer & Aspiring Owner
                 </p>
-                <div class="flex justify-center space-x-4 mb-12">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
                     <a href="#contact"
-                        class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors">
+                        class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors w-full sm:w-auto text-center">
                         Get in Touch
                     </a>
                     <a href="#"
-                        class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition-colors">
+                        class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition-colors w-full sm:w-auto text-center">
                         Download CV
                     </a>
                 </div>
@@ -135,13 +160,12 @@
                         and product management. My journey in tech has evolved from ensuring quality through automation to
                         understanding the broader impact of technology on user experience.</p>
 
-                    <p>At Verisk , I have led teams in developing critical applications, implemented automated testing
+                    <p>At <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">Verisk</a>, I have led teams in developing critical applications, implemented automated testing
                         frameworks, and played a key role in cloud migration efforts for IoT projects. My approach combines
                         technical
                         expertise with a deep understanding of user needs.</p>
 
-                    <p>Currently pursuing my MS in Management Information Systems at Southern Illinois University
-                        Edwardsville, I'm expanding my knowledge in project management and business analytics to better
+                    <p>Currently pursuing my MS in Management Information Systems at <a href="https://www.siue.edu/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">Southern Illinois University Edwardsville</a>, I'm expanding my knowledge in project management and business analytics to better
                         align technology with business objectives.</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -169,49 +193,47 @@
         <section id="experience" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Professional Journey</h2>
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-4xl mx-auto space-y-10">
                     <div class="timeline-item">
-    <h3 class="text-xl font-bold">Senior Software Engineer</h3>
-    <p class="text-blue-600">
-        <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
-            Verisk
-        </a> | July 2022 - August 2024
-    </p>
-    <ul class="mt-4 space-y-2 text-gray-600">
-        <li>• Led a team of 5 engineers in developing automated testing frameworks</li>
-        <li>• Implemented cloud-based testing infrastructure, reducing costs by 30%</li>
-        <li>• Mentored junior engineers and fostered a collaborative environment</li>
-        <li>• Played a key role in migrating legacy systems to cloud infrastructure</li>
-    </ul>
-</div>
-
-<div class="timeline-item">
-    <h3 class="text-xl font-bold">Software Engineer</h3>
-    <p class="text-blue-600">
-        <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
-            Verisk
-        </a> | April 2021 - June 2022
-    </p>
-    <ul class="mt-4 space-y-2 text-gray-600">
-        <li>• Developed and maintained enterprise-level test automation frameworks</li>
-        <li>• Collaborated with cross-functional teams for feature implementation</li>
-        <li>• Conducted code reviews and provided technical mentorship</li>
-    </ul>
-</div>
-
-<div class="timeline-item">
-    <h3 class="text-xl font-bold">Associate Software Engineer</h3>
-    <p class="text-blue-600">
-        <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
-            Verisk
-        </a> | November 2019 - May 2021
-    </p>
-    <ul class="mt-4 space-y-2 text-gray-600">
-        <li>• Gained hands-on experience in software development</li>
-        <li>• Assisted in development and testing of software components</li>
-        <li>• Applied software development best practices</li>
-    </ul>
-</div>
+                        <h3 class="text-xl font-bold">Senior Software Engineer</h3>
+                        <p class="text-blue-600">
+                            <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
+                                Verisk
+                            </a> | July 2022 - August 2024
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-600">
+                            <li>• Led a team of 5 engineers in developing automated testing frameworks</li>
+                            <li>• Implemented cloud-based testing infrastructure, reducing costs by 30%</li>
+                            <li>• Mentored junior engineers and fostered a collaborative environment</li>
+                            <li>• Played a key role in migrating legacy systems to cloud infrastructure</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-bold">Software Engineer</h3>
+                        <p class="text-blue-600">
+                            <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
+                                Verisk
+                            </a> | April 2021 - June 2022
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-600">
+                            <li>• Developed and maintained enterprise-level test automation frameworks</li>
+                            <li>• Collaborated with cross-functional teams for feature implementation</li>
+                            <li>• Conducted code reviews and provided technical mentorship</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-bold">Associate Software Engineer</h3>
+                        <p class="text-blue-600">
+                            <a href="https://www.verisk.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-800">
+                                Verisk
+                            </a> | November 2019 - May 2021
+                        </p>
+                        <ul class="mt-4 space-y-2 text-gray-600">
+                            <li>• Gained hands-on experience in software development</li>
+                            <li>• Assisted in development and testing of software components</li>
+                            <li>• Applied software development best practices</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -262,7 +284,7 @@
                 <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Certifications & Awards</h2>
                 <div class="certificate-grid max-w-6xl mx-auto">
                     <div class="hover-scale bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-                        onclick="openModal('ISTQB CTFL', 'April 2024', 'path/to/istqb-certificate.jpg')">
+                        onclick="openModal('ISTQB CTFL', 'April 2024', 'images/certs/istqb-certificate.jpg')">
                         <div class="text-3xl text-blue-600 mb-4">
                             <i class="fas fa-certificate"></i>
                         </div>
@@ -271,7 +293,7 @@
                     </div>
 
                     <div class="hover-scale bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-                        onclick="openModal('AWS Certified Cloud Practitioner', 'December 2021', 'path/to/aws-certificate.jpg')">
+                        onclick="openModal('AWS Certified Cloud Practitioner', 'December 2021', 'images/certs/aws-certificate.jpg')">
                         <div class="text-3xl text-blue-600 mb-4">
                             <i class="fab fa-aws"></i>
                         </div>
@@ -291,43 +313,11 @@
             </div>
         </section>
 
-        <style>
-            .certificate-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-            }
-
-            .hover-scale {
-                transition: transform 0.3s ease;
-            }
-
-            .hover-scale:hover {
-                transform: scale(1.05);
-            }
-        </style>
-
-        <!-- Modal -->
-        <div id="certificateModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white p-8 rounded-lg max-w-3xl w-full relative">
-        <button onclick="closeModal()"
-            class="absolute top-4 right-4 bg-blue-600 text-white rounded-full p-2 text-2xl hover:bg-blue-800 focus:outline-none shadow-lg z-50">
-            <i class="fas fa-times"></i>
-        </button>
-        <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
-        <p id="modalDate" class="text-gray-600 mb-4"></p>
-        <img id="modalImage" src="" alt="Certificate" class="w-full mb-4">
-    </div>
-</div>
-
         <!-- Blog Section -->
         <section id="blog" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Technical Insights & Thoughts</h2>
-
-                <!-- Blog Posts Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <!-- Sample Blog Post Card -->
                     <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
                         <img src="/api/placeholder/400/200" alt="Blog Post" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -340,54 +330,6 @@
                             </div>
                         </div>
                     </article>
-                    <!-- Add more blog posts -->
-                </div>
-
-                <!-- Blog Post Template (Hidden by default, shown when clicking "Read More") -->
-                <div id="fullPost" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
-                    <div class="bg-white max-w-4xl mx-auto my-8 p-8 rounded-lg overflow-y-auto max-h-screen">
-                        <article class="prose lg:prose-xl">
-                            <h1 class="text-3xl font-bold mb-4">Blog Post Title</h1>
-                            <div class="flex items-center mb-6">
-                                <span class="text-gray-500">Published on: January 1, 2024</span>
-                            </div>
-                            <div class="content mb-8">
-                                <!-- Blog content goes here -->
-                            </div>
-
-                            <!-- Comments Section -->
-                            <div class="border-t pt-8">
-                                <h3 class="text-xl font-bold mb-4">Comments</h3>
-
-                                <!-- Comment Form -->
-                                <form class="mb-8">
-                                    <textarea class="w-full p-4 border rounded-lg mb-4"
-                                        placeholder="Share your thoughts..."></textarea>
-                                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Post
-                                        Comment</button>
-                                </form>
-
-                                <!-- Comments List -->
-                                <div class="space-y-6">
-                                    <div class="border-b pb-4">
-                                        <div class="flex items-center mb-2">
-                                            <img src="/api/placeholder/40/40" alt="User"
-                                                class="w-10 h-10 rounded-full mr-4">
-                                            <div>
-                                                <h4 class="font-bold">John Doe</h4>
-                                                <span class="text-gray-500 text-sm">2 days ago</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-600">Great insights! I especially appreciated your thoughts
-                                            on...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePost()">
-                            <i class="fas fa-times text-2xl"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </section>
@@ -396,10 +338,7 @@
         <section id="life" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold mb-12 text-center gradient-text">More About Me</h2>
-
-                <!-- Life Events Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <!-- Workshop Card -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
                         <img src="/api/placeholder/400/300" alt="Tech Workshop" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -412,84 +351,40 @@
                             </p>
                         </div>
                     </div>
-
-                    <!-- Hiking Card -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
                         <img src="/api/placeholder/400/300" alt="Hiking Adventure" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <div class="flex items-center mb-2">
-                                <i class="fas fa-mountain text-blue-600 mr-2"></i>
-                                <span class="text-sm text-gray-500">Adventure</span>
-                            </div>
                             <h3 class="text-xl font-bold mb-2">Mount Everest Base Camp</h3>
                             <p class="text-gray-600">Achieving new heights both literally and metaphorically.</p>
                         </div>
                     </div>
-
-                    <!-- Education Card -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
                         <img src="/api/placeholder/400/300" alt="Graduation" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <div class="flex items-center mb-2">
-                                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                                <span class="text-sm text-gray-500">Education</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Masters Journey at SIUE</h3>
-                            <p class="text-gray-600">Pursuing MS in Management Information Systems.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Photo Gallery -->
                 <div class="mt-12">
                     <h3 class="text-2xl font-bold mb-8 text-center">Photo Gallery</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery">
                         <!-- Gallery Items -->
-                        <div class="life-grid-item rounded-lg overflow-hidden cursor-pointer" onclick="openGallery(0)">
-                            <img src="/api/placeholder/300/300" alt="Life Event 1" class="w-full h-64 object-cover">
-                            <div class="overlay">
-                                <i class="fas fa-expand text-2xl"></i>
-                            </div>
-                        </div>
-                        <!-- Add more gallery items as needed -->
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Gallery Modal -->
-        <div class="gallery-modal" id="galleryModal">
-            <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeGallery()">
-                <i class="fas fa-times"></i>
-            </button>
-            <img src="" alt="Gallery Image" id="modalImage" class="max-w-4xl max-h-[80vh] object-contain">
-            <button class="absolute left-4 text-white text-2xl" onclick="changeImage(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="absolute right-4 text-white text-2xl" onclick="changeImage(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
 
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold mb-12 gradient-text">Let's Connect</h2>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-                    I am always excited to connect with fellow tech enthusiasts and professionals. Whether you want to
-                    discuss QA automation, product management, or just share ideas, feel free to reach out!
                 </p>
-                <div class="flex justify-center space-x-6">
-                    <a href="mailto:roshangautam8484@gmail.com" class="text-gray-600 hover:text-blue-600">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/roshan-gautam-03303116b/"
-                        class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="tel:+16184710801" class="text-gray-600 hover:text-blue-600">
-                        <i class="fas fa-phone text-2xl"></i>
-                    </a>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:roshangautam.ku@gmail.com" class="flex items-center gap-2 text-blue-600 hover:underline"><img src="images/gmail_logo.png" alt="Gmail" class="w-6 h-6">Gmail</a>
+                    <a href="https://www.linkedin.com/in/roshangautam/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-600 hover:underline"><img src="images/linkedin_logo.png" alt="LinkedIn" class="w-6 h-6">LinkedIn</a>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-600 hover:underline"><img src="images/whatsapp_logo.png" alt="WhatsApp" class="w-6 h-6">WhatsApp</a>
+                    <a href="viber://chat?number=1234567890" class="flex items-center gap-2 text-blue-600 hover:underline"><img src="images/viber_logo.png" alt="Viber" class="w-6 h-6">Viber</a>
+                    <a href="https://www.facebook.com/roshangautam.ku" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-600 hover:underline"><img src="images/facebook_logo.png" alt="Facebook" class="w-6 h-6">Facebook</a>
                 </div>
             </div>
         </section>
@@ -497,8 +392,12 @@
 
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p class="mb-4">"Quality is not an act, it is a habit." - Aristotle</p>
-            <p class="text-gray-400">© 2024 Roshan Gautam. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <span>&copy; 2025 Roshan Gautam. All rights reserved.</span>
+                <span class="flex items-center gap-2">
+                    <img src="https://visitor-badge.laobi.icu/badge?page_id=IamRoshanGautam.github.io" alt="Visitor Badge" class="inline w-24 h-6"/>
+                </span>
+            </div>
         </div>
     </footer>
 
@@ -506,100 +405,49 @@
         // Navbar scroll effect
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('mainNav');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 10) {
                 nav.classList.add('nav-sticky');
             } else {
                 nav.classList.remove('nav-sticky');
             }
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navClose = document.getElementById('navClose');
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        navClose.addEventListener('click', closeMobileMenu);
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // Add animation to skill cards on scroll
-        const observerOptions = {
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.hover-scale').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Form validation for contact form (if you add one)
-        function validateForm(event) {
-            const form = event.target;
-            const email = form.querySelector('input[type="email"]');
-            const message = form.querySelector('textarea');
-
-            let isValid = true;
-
-            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                isValid = false;
-                email.classList.add('error');
-            } else {
-                email.classList.remove('error');
-            }
-
-            if (message.value.length < 10) {
-                isValid = false;
-                message.classList.add('error');
-            } else {
-                message.classList.remove('error');
-            }
-
-            return isValid;
-        }
-
-        // Theme toggle functionality (optional)
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        }
-
-        // Initialize theme from localStorage
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-theme');
-        }
-
-        function openModal(title, date, imagePath) {
+        // Modal for certifications
+        function openModal(title, date, imgSrc) {
+            document.getElementById('certificateModal').classList.remove('hidden');
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalDate').textContent = date;
-            document.getElementById('modalImage').src = imagePath;
-            document.getElementById('certificateModal').classList.remove('hidden');
-            document.getElementById('certificateModal').classList.add('flex');
+            document.getElementById('modalImage').src = imgSrc;
         }
-
         function closeModal() {
             document.getElementById('certificateModal').classList.add('hidden');
-            document.getElementById('certificateModal').classList.remove('flex');
         }
-
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            if (event.target == document.getElementById('certificateModal')) {
-                closeModal();
-            }
+        // Gallery modal (stub, implement as needed)
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
         }
-
+        function changeImage(dir) {}
+        // Blog modal (stub, implement as needed)
+        function closePost() {
+            document.getElementById('fullPost').classList.add('hidden');
+        }
     </script>
+
 </body>
 </html>
