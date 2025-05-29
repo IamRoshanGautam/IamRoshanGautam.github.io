@@ -106,29 +106,38 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Nav Overlay -->
-        <div id="mobileOverlay" class="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 z-30 hidden transition-opacity duration-300"></div>
-        <!-- Mobile Nav -->
-        <div id="mobileMenu" class="md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold text-gray-700 hidden transition-transform duration-300">
-            <button id="navClose" class="absolute top-6 right-8 text-3xl text-blue-600 focus:outline-none" aria-label="Close navigation menu">
-                <i class="fas fa-times"></i>
-            </button>
-            <a href="#about" class="hover:text-blue-600" onclick="closeMobileMenu()">My Story</a>
-            <a href="#experience" class="hover:text-blue-600" onclick="closeMobileMenu()">Experience</a>
-            <a href="#education" class="hover:text-blue-600" onclick="closeMobileMenu()">Education</a>
-            <a href="#certifications" class="hover:text-blue-600" onclick="closeMobileMenu()">Certifications</a>
-            <a href="#blog" class="hover:text-blue-600" onclick="closeMobileMenu()">Blog</a>
-            <a href="#life" class="hover:text-blue-600" onclick="closeMobileMenu()">Personal Side</a>
-            <a href="#contact" class="hover:text-blue-600" onclick="closeMobileMenu()">Contact</a>
-        </div>
     </nav>
+    <!-- Mobile Nav Overlay & Drawer Container (modern, attractive, and accessible) -->
+    <div id="mobileNavContainer" class="md:hidden fixed inset-0 z-[99999] flex justify-center items-center hidden">
+      <!-- Fixed Close Button (always visible) -->
+      <!-- Fullscreen Menu -->
+      <div id="mobileMenu" class="fixed inset-0 bg-gradient-to-br from-blue-600 via-green-400 to-blue-500 bg-opacity-95 z-[100000] flex flex-col justify-center items-center space-y-10 text-3xl font-extrabold text-white transition-transform duration-300 transform translate-y-full">
+        <!-- Fixed Close Button (always visible and clickable) -->
+        <button id="navClose" class="absolute top-8 right-8 text-4xl bg-red-600 hover:bg-red-700 rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 flex items-center justify-center w-16 h-16 p-0 border-4 border-white" style="z-index:999999;" aria-label="Close navigation menu" tabindex="0">
+          <span class="relative block w-10 h-10 pointer-events-none select-none">
+            <span class="absolute left-1/2 top-1/2 w-10 h-1.5 bg-white rounded transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
+            <span class="absolute left-1/2 top-1/2 w-10 h-1.5 bg-white rounded transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
+          </span>
+        </button>
+        <nav class="flex flex-col items-center space-y-10 mt-32">
+          <a href="#about" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">My Story</a>
+          <a href="#experience" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Experience</a>
+          <a href="#education" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Education</a>
+          <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Certifications</a>
+          <a href="#blog" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Blog</a>
+          <a href="#life" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Personal Side</a>
+          <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <!-- End Mobile Nav Overlay & Drawer Container -->
 
     <!-- Main Content with padding to avoid navbar overlap -->
     <main class="pt-28">
         <!-- Hero Section -->
         <section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white">
             <div class="container mx-auto px-6 text-center">
-                <div class="relative inline-block mb-8">
+                <div id="avatarContainer" class="relative inline-block mb-8 md:mb-8 lg:mb-8">
                     <img src="images/roshan_image.jpg" alt="Roshan Gautam"
                         class="w-40 h-40 rounded-full border-4 border-white shadow-xl hero-image">
                     <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white p-2 rounded-full">
@@ -184,7 +193,7 @@
                         <div class="hover-scale bg-blue-50 p-6 rounded-lg">
                             <i class="fas fa-users-cog text-3xl text-blue-600 mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">Team Leader</h3>
-                            <p>Led and mentored teams while fostering collaborative environments</p>
+                            <p>Led and mentored teams while fostering a collaborative environment</p>
                         </div>
                     </div>
                 </div>
@@ -416,22 +425,50 @@
 
         // Mobile nav toggle
         const navToggle = document.getElementById('navToggle');
+        const mobileNavContainer = document.getElementById('mobileNavContainer');
         const mobileMenu = document.getElementById('mobileMenu');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const navClose = document.getElementById('navClose');
-        function openMobileMenu() {
-            mobileMenu.classList.remove('hidden');
-            mobileOverlay.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
+        const mainContent = document.querySelector('main');
+        const avatarContainer = document.getElementById('avatarContainer');
+
+function openMobileMenu() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    mobileNavContainer.classList.remove('hidden');
+    setTimeout(() => {
+        mobileMenu.classList.remove('translate-y-full');
+        // Attach close handler every time menu opens (use addEventListener to avoid override issues)
+        const navCloseBtn = document.getElementById('navClose');
+        if (navCloseBtn) {
+            navCloseBtn.removeEventListener('click', closeMobileMenu); // Prevent duplicate handlers
+            navCloseBtn.addEventListener('click', closeMobileMenu);
         }
-        function closeMobileMenu() {
-            mobileMenu.classList.add('hidden');
-            mobileOverlay.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }
-        navToggle.addEventListener('click', openMobileMenu);
-        navClose.addEventListener('click', closeMobileMenu);
-        mobileOverlay.addEventListener('click', closeMobileMenu);
+    }, 10);
+    document.body.style.overflow = 'hidden';
+    navToggle.style.display = 'none';
+    if (avatarContainer) avatarContainer.classList.add('hidden');
+}
+
+function closeMobileMenu() {
+    mobileMenu.classList.add('translate-y-full');
+    setTimeout(() => {
+        mobileNavContainer.classList.add('hidden');
+        document.body.style.overflow = '';
+        navToggle.style.display = '';
+        if (avatarContainer) avatarContainer.classList.remove('hidden');
+    }, 300);
+}
+
+navToggle.addEventListener('click', openMobileMenu);
+
+// Close menu when any link is clicked
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
+
+document.addEventListener('keydown', function(e) {
+    if (mobileNavContainer && !mobileNavContainer.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeMobileMenu();
+    }
+});
         // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
