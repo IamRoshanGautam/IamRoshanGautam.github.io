@@ -109,24 +109,16 @@
     </nav>
     <!-- Mobile Nav Overlay & Drawer Container (modern, attractive, and accessible) -->
     <div id="mobileNavContainer" class="md:hidden fixed inset-0 z-[99999] flex justify-center items-center hidden">
-      <!-- Fixed Close Button (always visible) -->
       <!-- Fullscreen Menu -->
-      <div id="mobileMenu" class="fixed inset-0 bg-gradient-to-br from-blue-600 via-green-400 to-blue-500 bg-opacity-95 z-[100000] flex flex-col justify-center items-center space-y-10 text-3xl font-extrabold text-white transition-transform duration-300 transform translate-y-full">
-        <!-- Fixed Close Button (always visible and clickable) -->
-        <button id="navClose" class="absolute top-8 right-8 text-4xl bg-red-600 hover:bg-red-700 rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 flex items-center justify-center w-16 h-16 p-0 border-4 border-white" style="z-index:999999;" aria-label="Close navigation menu" tabindex="0">
-          <span class="relative block w-10 h-10 pointer-events-none select-none">
-            <span class="absolute left-1/2 top-1/2 w-10 h-1.5 bg-white rounded transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
-            <span class="absolute left-1/2 top-1/2 w-10 h-1.5 bg-white rounded transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
-          </span>
-        </button>
-        <nav class="flex flex-col items-center space-y-10 mt-32">
-          <a href="#about" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">My Story</a>
-          <a href="#experience" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Experience</a>
-          <a href="#education" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Education</a>
-          <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Certifications</a>
-          <a href="#blog" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Blog</a>
-          <a href="#life" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Personal Side</a>
-          <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200 text-3xl font-extrabold">Contact</a>
+      <div id="mobileMenu" class="bg-gradient-to-br from-blue-600 via-green-400 to-blue-500 bg-opacity-95 z-[100000] flex flex-col justify-center items-center space-y-6 text-2xl font-extrabold text-white transition-transform duration-300 transform translate-y-full w-11/12 max-w-md mx-auto rounded-2xl shadow-2xl p-8 relative mt-24" style="min-height: 50vh;" onclick="event.stopPropagation()">
+        <nav class="flex flex-col items-center space-y-6">
+          <a href="#about" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">My Story</a>
+          <a href="#experience" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Experience</a>
+          <a href="#education" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Education</a>
+          <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Certifications</a>
+          <a href="#blog" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Blog</a>
+          <a href="#life" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Personal Side</a>
+          <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Contact</a>
         </nav>
       </div>
     </div>
@@ -435,12 +427,6 @@ function openMobileMenu() {
     mobileNavContainer.classList.remove('hidden');
     setTimeout(() => {
         mobileMenu.classList.remove('translate-y-full');
-        // Attach close handler every time menu opens (use addEventListener to avoid override issues)
-        const navCloseBtn = document.getElementById('navClose');
-        if (navCloseBtn) {
-            navCloseBtn.removeEventListener('click', closeMobileMenu); // Prevent duplicate handlers
-            navCloseBtn.addEventListener('click', closeMobileMenu);
-        }
     }, 10);
     document.body.style.overflow = 'hidden';
     navToggle.style.display = 'none';
@@ -469,7 +455,21 @@ document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeMobileMenu();
     }
 });
-        // Close mobile menu on link click
+
+// Overlay click-to-close logic
+mobileNavContainer.addEventListener('click', function(e) {
+    // If the click is NOT on a menu item (link), close the menu
+    if (!e.target.closest('a[href^="#"]')) {
+        closeMobileMenu();
+    }
+});
+
+// Prevent overlay click from closing menu when clicking inside the menu
+mobileMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+
+// Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
