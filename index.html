@@ -16,74 +16,7 @@
     <title>Roshan Gautam - Senior Software Quality Assurance Automation Engineer & Aspiring Product Owner</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .gradient-text {
-            background: linear-gradient(45deg, #4285F4, #34A853);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-sticky {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-image {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .hover-scale {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hover-scale:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-item {
-            border-left: 2px solid #4285F4;
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 30px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #4285F4;
-        }
-
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50">
@@ -298,7 +231,7 @@
                     </div>
 
                     <div class="hover-scale bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-                        onclick="openModal('AWS Certified Cloud Practitioner', 'December 2021', 'images/certs/Roshan_Gautam_AWS_Certs.jpg')">
+                        onclick="openModal('AWS Certified Cloud Practitioner', 'December 2021', 'images/certs/Roshan_Gautam_AWS_CCP_Report.jpg')">
                         <div class="text-3xl text-blue-600 mb-4">
                             <i class="fab fa-aws"></i>
                         </div>
@@ -524,7 +457,7 @@
 
     <!-- Modal for Certifications & Awards -->
     <div id="modal" class="fixed inset-0 z-[100001] bg-black bg-opacity-70 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6 relative" onclick="event.stopPropagation()">
+        <div class="modal-content bg-white rounded-lg shadow-2xl max-w-lg w-full pt-12 px-6 pb-6 relative" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-3xl text-gray-900 hover:text-red-500 focus:outline-none bg-white bg-opacity-100 rounded-full w-12 h-12 flex items-center justify-center shadow-2xl border-2 border-gray-300 z-30" aria-label="Close">&times;</button>
             <h2 class="text-xl font-bold mb-4" id="modalTitle"></h2>
             <p class="text-gray-600 mb-4" id="modalDate"></p>
@@ -535,57 +468,8 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        // Navigation toggle for mobile
-        document.getElementById('navToggle').addEventListener('click', function () {
-            const mobileNav = document.getElementById('mobileNavContainer');
-            mobileNav.classList.toggle('hidden');
-            mobileNav.classList.toggle('flex');
-        });
 
-        // Close mobile navigation when clicking outside
-        document.addEventListener('click', function (e) {
-            const mobileNav = document.getElementById('mobileNavContainer');
-            const navToggle = document.getElementById('navToggle');
-            if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
-                mobileNav.classList.add('hidden');
-                mobileNav.classList.remove('flex');
-            }
-        });
-
-        // Modal functionality
-        function openModal(title, date, image, description) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDate').innerText = date;
-            document.getElementById('modalImage').src = image;
-            document.getElementById('modalDescription').innerText = description;
-            document.getElementById('modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
-        }
-
-        // Workshop gallery functionality
-        function openWorkshopGallery(title, description, images) {
-            document.getElementById('workshopGalleryTitle').innerText = title;
-            document.getElementById('workshopGalleryDesc').innerText = description;
-            const galleryImages = document.getElementById('workshopGalleryImages');
-            galleryImages.innerHTML = ''; // Clear existing images
-            images.forEach((image) => {
-                const imgElement = document.createElement('img');
-                imgElement.src = image;
-                imgElement.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md');
-                galleryImages.appendChild(imgElement);
-            });
-            document.getElementById('workshopGalleryModal').classList.remove('hidden');
-        }
-
-        function closeWorkshopGallery() {
-            document.getElementById('workshopGalleryModal').classList.add('hidden');
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
