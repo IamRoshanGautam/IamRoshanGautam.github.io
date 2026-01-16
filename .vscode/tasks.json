@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Test Hamburger Menu Functionality",
+			"command": "npx http-server",
+			"args": [
+				"-p",
+				"8080"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}

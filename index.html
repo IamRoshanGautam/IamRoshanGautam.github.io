@@ -26,7 +26,7 @@
     <div class="container mx-auto px-6 py-5 flex items-center justify-between">
         <a href="index.html" class="text-3xl font-extrabold gradient-text transition-transform duration-200 hover:scale-110 drop-shadow-lg">Rosh</a>
         <!-- Desktop Nav -->
-        <div class="hidden md:flex space-x-8">
+        <div id="desktopNavLinks" class="hidden md:flex space-x-8">
             <a href="#about" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">My Story</a>
             <a href="#experience" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Experience</a>
             <a href="#education" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors duration-200 hover:underline underline-offset-8">Education</a>
@@ -43,22 +43,32 @@
     </div>
 </nav>
 
-    <!-- Mobile Nav Overlay & Drawer Container (modern, attractive, and accessible) -->
-    <div id="mobileNavContainer" class="md:hidden fixed inset-0 z-[99999] flex justify-center items-center hidden">
-      <!-- Fullscreen Menu -->
-      <div id="mobileMenu" class="bg-gradient-to-br from-blue-600 via-green-400 to-blue-500 bg-opacity-95 z-[100000] flex flex-col justify-center items-center space-y-6 text-2xl font-extrabold text-white transition-transform duration-300 transform translate-y-full w-11/12 max-w-md mx-auto rounded-2xl shadow-2xl p-8 relative mt-24" style="min-height: 50vh;" onclick="event.stopPropagation()">
-        <nav class="flex flex-col items-center space-y-6">
-          <a href="#about" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">My Story</a>
-          <a href="#experience" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Experience</a>
-          <a href="#education" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Education</a>
-          <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Certifications</a>
-          <a href="#workshops" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Workshops</a>
-          <a href="#research-projects" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Research & Projects</a>
-          <a href="#affiliations" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Professional Affiliations</a>
-          <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200 text-2xl font-extrabold">Contact</a>
-        </nav>
-      </div>
+<!-- Mobile Nav Overlay (Full Screen) -->
+<div id="mobileNavContainer" class="md:hidden fixed inset-0 hidden">
+  <div id="mobileMenu" class="w-full h-full text-white overflow-y-auto" onclick="event.stopPropagation()">
+
+    <!-- Top row (X button) -->
+    <div class="w-full flex justify-end p-6">
+      <button id="mobileNavClose" class="text-4xl leading-none" aria-label="Close menu">
+        &times;
+      </button>
     </div>
+
+    <!-- Menu options -->
+    <nav class="flex flex-col items-center gap-10 px-6 pb-14 text-3xl font-extrabold">
+      <a href="#about" class="hover:text-yellow-300 transition-colors duration-200">My Story</a>
+      <a href="#experience" class="hover:text-yellow-300 transition-colors duration-200">Experience</a>
+      <a href="#education" class="hover:text-yellow-300 transition-colors duration-200">Education</a>
+      <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200">Certifications</a>
+      <a href="#workshops" class="hover:text-yellow-300 transition-colors duration-200">Workshops</a>
+      <a href="#research-projects" class="hover:text-yellow-300 transition-colors duration-200">Research & Projects</a>
+      <a href="#affiliations" class="hover:text-yellow-300 transition-colors duration-200">Professional Affiliations</a>
+      <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200">Contact</a>
+    </nav>
+
+  </div>
+</div>
+
     <!-- End Mobile Nav Overlay & Drawer Container -->
 
     <!-- Main Content with padding to avoid navbar overlap -->

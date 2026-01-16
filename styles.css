@@ -169,3 +169,49 @@ html {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+#mobileNavContainer {
+    display: none; /* Ensure the container is hidden by default */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Reduced opacity for better visibility */
+    z-index: 99999;
+    position: fixed;
+    inset: 0;
+}
+
+#mobileMenu {
+    background: linear-gradient(45deg, #4285F4, #34A853);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Reduced shadow intensity */
+    max-width: 90%;
+    width: 300px;
+    animation: slideIn 0.3s ease-in-out;
+    z-index: 100000; /* Ensure it does not block other elements */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+#mobileMenu a {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#mobileMenu a:hover {
+    color: #FFD700;
+}
