@@ -1,180 +1,257 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Navigation toggle for mobile
-    const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNavContainer');
-    const mobileMenu = document.getElementById('mobileMenu');
+  // =========================================================
+  // MOBILE NAVIGATION (works with CSS: #mobileNavContainer.is-open)
+  // =========================================================
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNavContainer');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileNavClose = document.getElementById('mobileNavClose');
 
-    // Ensure mobile navigation is hidden by default
-    mobileNav.classList.add('hidden');
-    mobileMenu.classList.add('translate-y-full');
+  // IMPORTANT:
+  // Do NOT return early here.
+  // Even if the mobile-nav elements are missing (or renamed), your
+  // certificate/project modals should still work.
+  const hasMobileNav = !!(navToggle && mobileNav && mobileMenu);
 
-    // Check screen size and hide menu for desktop mode
-    function updateMenuVisibility() {
-        if (window.innerWidth > 768) {
-            mobileNav.classList.add('hidden');
-            mobileMenu.classList.add('translate-y-full');
-            mobileNav.style.backgroundColor = 'transparent';
-        } else {
-            mobileNav.classList.add('hidden'); // Ensure hidden state on mobile mode refresh
-            mobileMenu.classList.add('translate-y-full');
-            mobileNav.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        }
+  let scrollY = 0;
+
+  function lockScroll() {
+    scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+  }
+
+  function openMobileNav() {
+    mobileNav.classList.add('is-open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    lockScroll();
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    unlockScroll();
+  }
+
+  function toggleMobileNav() {
+    if (mobileNav.classList.contains('is-open')) closeMobileNav();
+    else openMobileNav();
+  }
+
+  // Hamburger open/close (CLICK ONLY — avoids mobile double-trigger issues)
+  if (hasMobileNav) {
+    navToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMobileNav();
+    });
+  }
+
+  // Close button (X)
+  if (hasMobileNav && mobileNavClose) {
+    mobileNavClose.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeMobileNav();
+    });
+  }
+
+  // Clicking inside menu should not close it
+  if (hasMobileNav) {
+    mobileMenu.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // Escape key closes menu
+  document.addEventListener('keydown', function (e) {
+    if (!hasMobileNav) return;
+    if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+      closeMobileNav();
+    }
+  });
+
+  // Close when a menu option is selected (close first, then scroll)
+  if (hasMobileNav) {
+    mobileNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = link.getAttribute('href');
+        const targetEl = targetId ? document.querySelector(targetId) : null;
+
+        closeMobileNav();
+
+        requestAnimationFrame(() => {
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else if (targetId) {
+            window.location.hash = targetId;
+          }
+        });
+      });
+    });
+  }
+
+  // =========================================================
+  // CERTIFICATE MODAL
+  // =========================================================
+  window.openModal = function (title, date, image, description = '') {
+    const modal = document.getElementById('modal');
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDate').innerText = date;
+    document.getElementById('modalImage').src = image;
+    document.getElementById('modalDescription').innerText =
+      description || 'Certificate preview only.';
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+  };
+
+  window.closeModal = function () {
+    const modal = document.getElementById('modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('show');
+  };
+
+  // =========================================================
+  // WORKSHOP GALLERY MODAL
+  // =========================================================
+  window.openWorkshopGallery = function (title, description, images) {
+    const modal = document.getElementById('workshopGalleryModal');
+    const modalTitle = document.getElementById('workshopGalleryTitle');
+    const modalDesc = document.getElementById('workshopGalleryDesc');
+    const galleryImages = document.getElementById('workshopGalleryImages');
+
+    modalTitle.textContent = title;
+    modalDesc.textContent = description;
+    galleryImages.innerHTML = '';
+
+    if (images && images.length > 0) {
+      images.forEach((image) => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = 'Workshop image';
+        img.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md');
+        galleryImages.appendChild(img);
+      });
+    } else {
+      const msg = document.createElement('p');
+      msg.textContent = 'No images available.';
+      msg.classList.add('text-gray-500', 'text-sm');
+      galleryImages.appendChild(msg);
     }
 
-    // Update menu visibility on page load and resize
-    updateMenuVisibility();
-    window.addEventListener('resize', updateMenuVisibility);
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+  };
 
-    navToggle.addEventListener('click', function (e) {
-        e.stopPropagation(); // Prevent click from propagating to document
-        mobileNav.classList.toggle('hidden');
-        mobileMenu.classList.toggle('translate-y-full');
+  window.closeWorkshopGallery = function () {
+    const modal = document.getElementById('workshopGalleryModal');
+    const modalTitle = document.getElementById('workshopGalleryTitle');
+    const modalDesc = document.getElementById('workshopGalleryDesc');
+    const galleryImages = document.getElementById('workshopGalleryImages');
 
-        // Adjust shadow visibility
-        if (!mobileNav.classList.contains('hidden')) {
-            mobileNav.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        } else {
-            mobileNav.style.backgroundColor = 'transparent';
-        }
+    modal.classList.add('hidden');
+    modal.classList.remove('show');
+    modalTitle.innerText = '';
+    modalDesc.innerText = '';
+    galleryImages.innerHTML = '';
+  };
+
+  // =========================================================
+  // RESEARCH PROJECT MODALS
+  // =========================================================
+
+  // Helper: ensure only one project modal is visible at a time.
+  // Expose on window so any inline onclick handlers can safely call it.
+  window.closeAllProjectModals = function () {
+    ['projectModal', 'biProjectModal', 'cyberProjectModal', 'dbProjectModal'].forEach((id) => {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+
+      modal.classList.remove('flex');
+      modal.classList.remove('show');
+      modal.classList.add('hidden');
     });
+  };
 
-    // Close mobile navigation when clicking outside
-    document.addEventListener('click', function (e) {
-        if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
-            mobileNav.classList.add('hidden');
-            mobileMenu.classList.add('translate-y-full');
-            mobileNav.style.backgroundColor = 'transparent'; // Reset shadow
-        }
-    });
+  // SIUE Nexus
+  window.openProjectModal = function () {
+    window.closeAllProjectModals();
+    const modal = document.getElementById('projectModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
 
-    // Ensure mobile menu links are clickable
-    const mobileMenuLinks = document.querySelectorAll('#mobileMenu a');
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileNav.classList.add('hidden');
-            mobileMenu.classList.add('translate-y-full');
-            mobileNav.style.backgroundColor = 'transparent';
-        });
-    });
+  window.closeProjectModal = function () {
+    const modal = document.getElementById('projectModal');
+    if (!modal) return;
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  };
 
-    // Ensure menu visibility is corrected on refresh
-    window.addEventListener('load', updateMenuVisibility);
+  // BI Project (CMIS 566)
+  window.openBIProjectModal = function () {
+    window.closeAllProjectModals();
+    const modal = document.getElementById('biProjectModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
 
-    // Debugging: Log menu state changes
-    navToggle.addEventListener('click', () => {
-        console.log('Hamburger menu toggled:', !mobileNav.classList.contains('hidden'));
-    });
+  window.closeBIProjectModal = function () {
+    const modal = document.getElementById('biProjectModal');
+    if (!modal) return;
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  };
 
-    // Certificate modal functions
-    window.openModal = function (title, date, image, description = '') {
-        const modal = document.getElementById('modal');
-        document.getElementById('modalTitle').innerText = title;
-        document.getElementById('modalDate').innerText = date;
-        document.getElementById('modalImage').src = image;
-        document.getElementById('modalDescription').innerText = description || 'Certificate preview only.';
-        modal.classList.remove('hidden');
-        modal.classList.add('show');
-    };
+  // Cybersecurity Project (CMIS 422)
+  window.openCyberProjectModal = function () {
+    window.closeAllProjectModals();
+    const modal = document.getElementById('cyberProjectModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
 
-    window.closeModal = function () {
-        const modal = document.getElementById('modal');
-        modal.classList.add('hidden');
-        modal.classList.remove('show');
-    };
+  window.closeCyberProjectModal = function () {
+    const modal = document.getElementById('cyberProjectModal');
+    if (!modal) return;
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  };
 
-    // Workshop modal functions
-    window.openWorkshopGallery = function (title, description, images) {
-        const modal = document.getElementById('workshopGalleryModal');
-        const modalTitle = document.getElementById('workshopGalleryTitle');
-        const modalDesc = document.getElementById('workshopGalleryDesc');
-        const galleryImages = document.getElementById('workshopGalleryImages');
-        modalTitle.textContent = title;
-        modalDesc.textContent = description;
-        galleryImages.innerHTML = '';
+  // DB Project (CMIS 564)
+  window.openDBProjectModal = function () {
+    window.closeAllProjectModals();
+    const modal = document.getElementById('dbProjectModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
 
-        if (images && images.length > 0) {
-            images.forEach((image) => {
-                const img = document.createElement('img');
-                img.src = image;
-                img.alt = 'Workshop image';
-                img.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md');
-                galleryImages.appendChild(img);
-            });
-        } else {
-            const msg = document.createElement('p');
-            msg.textContent = 'No images available.';
-            msg.classList.add('text-gray-500', 'text-sm');
-            galleryImages.appendChild(msg);
-        }
+  window.closeDBProjectModal = function () {
+    const modal = document.getElementById('dbProjectModal');
+    if (!modal) return;
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  };
 
-        modal.classList.remove('hidden');
-        modal.classList.add('show');
-    };
-
-    window.closeWorkshopGallery = function () {
-        const modal = document.getElementById('workshopGalleryModal');
-        const modalTitle = document.getElementById('workshopGalleryTitle');
-        const modalDesc = document.getElementById('workshopGalleryDesc');
-        const galleryImages = document.getElementById('workshopGalleryImages');
-        modal.classList.add('hidden');
-        modal.classList.remove('show');
-        modalTitle.innerText = '';
-        modalDesc.innerText = '';
-        galleryImages.innerHTML = '';
-    };
-
-    // Research project modal
-    window.openProjectModal = function (title, summary, details, points) {
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('projectModalTitle');
-        const modalContent = document.getElementById('projectModalContent');
-
-        if (title === 'SIUE Nexus: Maximizing Career Success Through Digital Alumni Integration') {
-            modalTitle.textContent = title;
-            modalContent.innerHTML = `
-                <p><strong>Authors:</strong> Roshan Gautam, Kayleigh Straeter, Joseph Meyer, Erica Dockery, Prizma Bajracharya</p>
-                <p><strong>Course:</strong> CMIS 526 - Information System and Technology</p>
-                <p><strong>Abstract:</strong> SIUE Nexus is a strategic digital initiative designed to transform career outcomes at Southern Illinois University Edwardsville by connecting students with a powerful alumni network. The proposed platform addresses the current disconnect through AI-driven matchmaking, structured mentorships, event management, and engagement analytics.</p>
-                <p><strong>Objectives:</strong></p>
-                <ul class="list-disc ml-6">
-                    <li>Enhance student career success through alumni mentorship</li>
-                    <li>Enable structured networking across geographical boundaries</li>
-                    <li>Strengthen alumni loyalty and university reputation</li>
-                </ul>
-                <p><strong>Platform Features:</strong></p>
-                <ul class="list-disc ml-6">
-                    <li>Customizable profile system for students and alumni</li>
-                    <li>AI-driven mentor-mentee matching based on career trajectory</li>
-                    <li>Event module for hybrid networking sessions with calendar sync</li>
-                    <li>Feedback and engagement tracking for continual improvement</li>
-                    <li>Data dashboards (Power BI, Argos) for trend analysis and ROI measurement</li>
-                </ul>
-                <p><strong>Technology Ecosystem:</strong> Integrated with Ellucian Banner, Microsoft Power BI, Argos, Microsoft PowerApps, and secure cloud infrastructure</p>
-                <p><strong>Recommendation:</strong> Graduway by Gravyty was recommended based on feature completeness, alignment with stakeholder needs, and measurable ROI. Alternatives (Scale Growth AI and 360 Alumni) were also evaluated for budget and scope tradeoffs.</p>
-                <p><strong>Benefits:</strong> $680,000 projected in five-year gains from improved engagement, event participation, and alumni giving. ROI: 30.4%. Payback Period: 1.44 years.</p>
-                <p><strong>Conclusion:</strong> SIUE Nexus is not just a platform — it's a cultural shift toward long-term alumni-student synergy. With proper implementation, it will strengthen SIUE's identity, elevate its placement success, and build a thriving professional community.</p>
-            `;
-        } else {
-            modalTitle.textContent = title;
-            modalContent.innerHTML = `
-                <p><strong>Summary:</strong> ${summary}</p>
-                <p><strong>Details:</strong> ${details}</p>
-                <ul class="list-disc ml-6">
-                    ${points.map(point => `<li>${point}</li>`).join('')}
-                </ul>
-            `;
-        }
-
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    };
-
-    window.closeProjectModal = function () {
-        const modal = document.getElementById('projectModal');
-        if (modal) {
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-        }
-    };
+  // ESC closes any open project modal
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    window.closeAllProjectModals();
+  });
 });
