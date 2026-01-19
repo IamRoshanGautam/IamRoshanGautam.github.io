@@ -95,6 +95,51 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // =========================================================
+  // NAVBAR SCROLL EFFECT & ACTIVE LINK TRACKING
+  // =========================================================
+  
+  const mainNav = document.getElementById('mainNav');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  
+  // Add scroll shadow effect
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 20) {
+      mainNav.classList.add('scrolled');
+    } else {
+      mainNav.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+  });
+  
+  // Active link highlighting based on scroll position
+  function highlightActiveSection() {
+    const scrollPos = window.scrollY + 100;
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', highlightActiveSection);
+  highlightActiveSection(); // Run on load
+
+  // =========================================================
   // CERTIFICATE MODAL - WITH CLICK OUTSIDE TO CLOSE
   // =========================================================
   window.openModal = function (title, date, image, description = '') {
