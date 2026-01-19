@@ -7,10 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileNavClose = document.getElementById('mobileNavClose');
 
-  // IMPORTANT:
-  // Do NOT return early here.
-  // Even if the mobile-nav elements are missing (or renamed), your
-  // certificate/project modals should still work.
   const hasMobileNav = !!(navToggle && mobileNav && mobileMenu);
 
   let scrollY = 0;
@@ -50,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
     else openMobileNav();
   }
 
-  // Hamburger open/close (CLICK ONLY — avoids mobile double-trigger issues)
   if (hasMobileNav) {
     navToggle.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -58,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Close button (X)
   if (hasMobileNav && mobileNavClose) {
     mobileNavClose.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -66,14 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Clicking inside menu should not close it
   if (hasMobileNav) {
     mobileMenu.addEventListener('click', function (e) {
       e.stopPropagation();
     });
   }
 
-  // Escape key closes menu
   document.addEventListener('keydown', function (e) {
     if (!hasMobileNav) return;
     if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
@@ -81,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Close when a menu option is selected (close first, then scroll)
   if (hasMobileNav) {
     mobileNav.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', function (e) {
@@ -104,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // =========================================================
-  // CERTIFICATE MODAL
+  // CERTIFICATE MODAL - WITH CLICK OUTSIDE TO CLOSE
   // =========================================================
   window.openModal = function (title, date, image, description = '') {
     const modal = document.getElementById('modal');
@@ -123,8 +114,18 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.remove('show');
   };
 
+  // Add click outside handler for certificate modal
+  const certificateModal = document.getElementById('modal');
+  if (certificateModal) {
+    certificateModal.addEventListener('click', function(e) {
+      if (e.target === certificateModal) {
+        window.closeModal();
+      }
+    });
+  }
+
   // =========================================================
-  // WORKSHOP GALLERY MODAL
+  // WORKSHOP GALLERY MODAL - WITH CLICK OUTSIDE TO CLOSE
   // =========================================================
   window.openWorkshopGallery = function (title, description, images) {
     const modal = document.getElementById('workshopGalleryModal');
@@ -168,12 +169,20 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryImages.innerHTML = '';
   };
 
+  // Add click outside handler for workshop modal
+  const workshopModal = document.getElementById('workshopGalleryModal');
+  if (workshopModal) {
+    workshopModal.addEventListener('click', function(e) {
+      if (e.target === workshopModal) {
+        window.closeWorkshopGallery();
+      }
+    });
+  }
+
   // =========================================================
-  // RESEARCH PROJECT MODALS
+  // RESEARCH PROJECT MODALS - WITH CLICK OUTSIDE TO CLOSE
   // =========================================================
 
-  // Helper: ensure only one project modal is visible at a time.
-  // Expose on window so any inline onclick handlers can safely call it.
   window.closeAllProjectModals = function () {
     ['projectModal', 'biProjectModal', 'cyberProjectModal', 'dbProjectModal'].forEach((id) => {
       const modal = document.getElementById(id);
@@ -249,9 +258,36 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.add('hidden');
   };
 
+  // Add click outside handlers for all project modals
+  const projectModals = [
+    { id: 'projectModal', closeFunc: window.closeProjectModal },
+    { id: 'biProjectModal', closeFunc: window.closeBIProjectModal },
+    { id: 'cyberProjectModal', closeFunc: window.closeCyberProjectModal },
+    { id: 'dbProjectModal', closeFunc: window.closeDBProjectModal }
+  ];
+
+  projectModals.forEach(({ id, closeFunc }) => {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeFunc();
+        }
+      });
+    }
+  });
+
   // ESC closes any open project modal
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     window.closeAllProjectModals();
+    
+    // Also close other modals on ESC
+    if (certificateModal && !certificateModal.classList.contains('hidden')) {
+      window.closeModal();
+    }
+    if (workshopModal && !workshopModal.classList.contains('hidden')) {
+      window.closeWorkshopGallery();
+    }
   });
 });
