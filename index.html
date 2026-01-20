@@ -105,13 +105,23 @@
 
     <!-- Hero Section -->
     <header class="hero bg-gradient-to-r from-blue-500 to-green-500 text-white py-20">
-      <div class="container mx-auto text-center">
-        <img src="images/Roshan_Hero_Image.jpg" alt="Roshan Gautam" class="hero-image mx-auto mb-6 rounded-full shadow-lg">
-        <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
-        <p class="text-xl mb-6">Showcasing my journey as a Software Quality Assurance Engineer</p>
-        <a href="#about" class="btn-primary">Learn More</a>
-      </div>
-    </header>
+  <div class="container mx-auto text-center">
+    <img src="images/Roshan_Hero_Image.jpg" alt="Roshan Gautam" class="hero-image mx-auto mb-6 rounded-full shadow-lg">
+    <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
+    <p class="text-xl mb-6">Showcasing my journey as a Software Quality Assurance Engineer</p>
+    
+    <!-- Button Group -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#about" class="btn-primary px-8 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition inline-flex items-center gap-2">
+        Learn More
+      </a>
+      <a href="documents/Roshan_Gautam_Resume.pdf" download class="btn-secondary px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-bold hover:bg-white hover:text-blue-600 transition inline-flex items-center gap-2">
+        <i class="fas fa-download"></i>
+        Download Resume
+      </a>
+    </div>
+  </div>
+</header>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
@@ -777,7 +787,9 @@
       </div>
     </div>
   </div>
-
+<button id="backToTop" class="back-to-top hidden" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 </body>
 
 </html>

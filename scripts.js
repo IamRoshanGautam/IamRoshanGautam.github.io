@@ -364,4 +364,26 @@ document.addEventListener('DOMContentLoaded', function () {
       window.closeLifeModal();
     });
   }
-});
+
+  // =========================================================
+  // BACK TO TOP BUTTON
+  // =========================================================
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('hidden');
+      } else {
+        backToTopBtn.classList.add('hidden');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+});  

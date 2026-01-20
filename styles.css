@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+/* Smooth scroll offset for fixed navbar */
+section[id] {
+  scroll-margin-top: 100px;
+}
 /* =========================================================
    STATE-OF-THE-ART NAVIGATION SYSTEM
    ========================================================= */
@@ -84,6 +88,7 @@ body {
 .nav-logo:hover .logo-text::after {
   width: 100%;
 }
+
 
 /* =========================================================
    DESKTOP NAVIGATION
@@ -643,6 +648,18 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* Hero section button styles */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 /* =========================================================
@@ -1528,4 +1545,49 @@ footer .social-icons a:hover {
 
 .project-item::before {
   /* Keep existing project-item::before styles */
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1E90FF, #32CD32);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.6);
+}
+
+.back-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Add to styles.css */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
 }
