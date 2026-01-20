@@ -47,16 +47,19 @@
         <span class="nav-link-text">Certifications</span>
       </a>
       <a href="#workshops" class="nav-link">
-        <span class="nav-link-text">Workshops</span>
+        <span class="nav-link-text">Workshops Delivered</span>
       </a>
       <a href="#research-projects" class="nav-link">
-        <span class="nav-link-text">Projects</span>
+        <span class="nav-link-text">Academic Projects</span>
       </a>
       <a href="#affiliations" class="nav-link">
         <span class="nav-link-text">Affiliations</span>
       </a>
       <a href="#contact" class="nav-link">
         <span class="nav-link-text">Contact</span>
+      </a>
+      <a href="#beyond-work" class="nav-link">
+        <span class="nav-link-text">Life in Action</span>
       </a>
     </div>
 
@@ -87,10 +90,11 @@
         <a href="#academic-experience" class="hover:text-yellow-300 transition-colors duration-200">Academic Appointments</a>
         <a href="#education" class="hover:text-yellow-300 transition-colors duration-200">Education</a>
         <a href="#certifications" class="hover:text-yellow-300 transition-colors duration-200">Certifications</a>
-        <a href="#workshops" class="hover:text-yellow-300 transition-colors duration-200">Workshops</a>
-        <a href="#research-projects" class="hover:text-yellow-300 transition-colors duration-200">Research & Projects</a>
+        <a href="#workshops" class="hover:text-yellow-300 transition-colors duration-200">Workshops Delivered</a>
+        <a href="#research-projects" class="hover:text-yellow-300 transition-colors duration-200">Academic Projects</a>
         <a href="#affiliations" class="hover:text-yellow-300 transition-colors duration-200">Professional Affiliations</a>
         <a href="#contact" class="hover:text-yellow-300 transition-colors duration-200">Contact</a>
+        <a href="#beyond-work" class="hover:text-yellow-300 transition-colors duration-200">Life in Action</a>
       </nav>
 
     </div>
@@ -546,7 +550,7 @@
     <!-- Professional Affiliations Section -->
     <section id="affiliations" class="py-20 bg-white">
       <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Professional Affiliations & Extracurricular Activities</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Professional Affiliations</h2>
         <div class="max-w-3xl mx-auto">
           <div class="hover-scale bg-blue-50 p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 cursor-pointer"
             onclick="openModal('Nepal Engineering Council Registration', 'October 2019 – Present', 'images/certs/Roshan_Gautam_NEC_Cert.jpg', 'Nepal Engineering Council Certificate')">
@@ -575,13 +579,49 @@
       </div>
     </section>
 
+    <!-- Beyond Work & Academics Section (before contact/footer) -->
+    <section id="beyond-work" class="py-20 soft-bg">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Beyond Work & Academics</h2>
+        <p class="text-center mb-8 text-lg text-gray-600">
+          I love to stay active, explore new places, and embrace adventure. Here’s a glimpse into my life beyond work and academics!
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="rounded-lg shadow-lg overflow-hidden bg-white cursor-pointer hover-scale" onclick="openLifeModal('Hiking the Himalayas', 'images/life/hiking.jpg', 'A breathtaking trek through the Himalayas, challenging and inspiring!')">
+            <img src="images/life/hiking.jpg" alt="Hiking" class="w-full h-56 object-cover">
+            <div class="p-4 text-center font-semibold">Hiking the Himalayas</div>
+          </div>
+          <div class="rounded-lg shadow-lg overflow-hidden bg-white cursor-pointer hover-scale" onclick="openLifeModal('Weekend Football', 'images/life/football.jpg', 'Playing football with friends every weekend keeps me energized and connected.')">
+            <img src="images/life/football.jpg" alt="Football" class="w-full h-56 object-cover">
+            <div class="p-4 text-center font-semibold">Weekend Football</div>
+          </div>
+          <div class="rounded-lg shadow-lg overflow-hidden bg-white cursor-pointer hover-scale" onclick="openLifeModal('Traveling New Destinations', 'images/life/travel.jpg', 'Exploring new places and cultures is my passion.')">
+            <img src="images/life/travel.jpg" alt="Travel" class="w-full h-56 object-cover">
+            <div class="p-4 text-center font-semibold">Traveling New Destinations</div>
+          </div>
+          <!-- Add more cards as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Life & Interests Modal -->
+    <div id="lifeModal" class="fixed inset-0 z-[100010] bg-black bg-opacity-70 flex items-center justify-center hidden">
+      <div class="bg-white rounded-lg shadow-2xl max-w-lg w-full pt-12 px-6 pb-6 relative" onclick="event.stopPropagation()">
+        <button onclick="closeLifeModal()"
+          class="absolute top-4 right-4 text-3xl text-gray-900 hover:text-red-500 focus:outline-none bg-white bg-opacity-100 rounded-full w-12 h-12 flex items-center justify-center shadow-2xl border-2 border-gray-300 z-30"
+          aria-label="Close">&times;</button>
+        <h2 class="text-xl font-bold mb-4" id="lifeModalTitle"></h2>
+        <div class="flex justify-center mb-4">
+          <img id="lifeModalImage" src="" alt="" class="rounded-lg shadow-lg max-w-full h-auto">
+        </div>
+        <div class="text-gray-700" id="lifeModalDescription"></div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
   <div class="container mx-auto text-center">
     <p>&copy; 2026 Roshan Gautam. All rights reserved.</p>
-    <div class="social-icons mt-4">
-      <a href="https://github.com/IamRoshanGautam" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-github"></i></a>
-    </div>
   </div>
 </footer>
   </main>

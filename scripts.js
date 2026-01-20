@@ -335,4 +335,33 @@ document.addEventListener('DOMContentLoaded', function () {
       window.closeWorkshopGallery();
     }
   });
+
+  // =========================================================
+  // LIFE & INTERESTS MODAL - WITH CLICK OUTSIDE TO CLOSE
+  // =========================================================
+  window.openLifeModal = function(title, image, description) {
+    const modal = document.getElementById('lifeModal');
+    document.getElementById('lifeModalTitle').innerText = title;
+    document.getElementById('lifeModalImage').src = image;
+    document.getElementById('lifeModalDescription').innerText = description;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
+
+  window.closeLifeModal = function() {
+    const modal = document.getElementById('lifeModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.getElementById('lifeModalTitle').innerText = '';
+    document.getElementById('lifeModalImage').src = '';
+    document.getElementById('lifeModalDescription').innerText = '';
+  };
+
+  // Close modal on outside click
+  const lifeModal = document.getElementById('lifeModal');
+  if (lifeModal) {
+    lifeModal.addEventListener('click', function() {
+      window.closeLifeModal();
+    });
+  }
 });
