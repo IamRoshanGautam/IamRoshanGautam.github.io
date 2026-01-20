@@ -409,8 +409,9 @@ body {
 
 @media (max-width: 768px) {
   .hero-image {
-    padding: 0;
-    border-radius: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Keep it circular */
   }
 }
 
