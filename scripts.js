@@ -502,27 +502,27 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Confidently presenting complex technical concepts to diverse audiences, showcasing communication and leadership skills.'
       },
       {
-        src: 'images/personal_section/Rosh_SIUE_One.JPEG',
+        src: 'images/personal_section/Rosh_SIUE_One.jpeg',
         title: 'SIUE Campus Collaboration',
         description: 'Collaborating with peers on the SIUE campus, fostering teamwork and knowledge-sharing in academic environments.'
       },
       {
-        src: 'images/personal_section/Rosh_SIUE_2.JPEG',
+        src: 'images/personal_section/Rosh_SIUE_2.jpeg',
         title: 'SIUE Academic Engagement',
         description: 'Active participation in campus life and academic discussions at Southern Illinois University Edwardsville.'
       },
       {
-        src: 'images/personal_section/Rosh_Presenting_2.JPEG',
+        src: 'images/personal_section/Rosh_Presenting_2.jpeg',
         title: 'Project Demonstration',
         description: 'Demonstrating project outcomes and technical solutions to faculty and industry professionals.'
       },
       {
-        src: 'images/personal_section/Rosh_KU_Graduation_Two.JPEG',
+        src: 'images/personal_section/Rosh_KU_Graduation_Two.jpeg',
         title: 'Engineering Graduation Achievement',
         description: 'Celebrating the completion of a rigorous Bachelor of Engineering in Computer Engineering program at Kathmandu University.'
       },
       {
-        src: 'images/personal_section/Rosh_KU_Graduation_One.JPEG',
+        src: 'images/personal_section/Rosh_KU_Graduation_One.jpeg',
         title: 'Academic Milestone Accomplishment',
         description: 'Achieving academic excellence and graduating with honors from a prestigious engineering institution.'
       }
@@ -594,17 +594,17 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Studying operational processes and quality control during an educational brewery tour.'
       },
       {
-        src: 'images/personal_section/Rosh_Mustang.JPEG',
+        src: 'images/personal_section/Rosh_Mustang.jpeg',
         title: 'Remote Area Exploration',
         description: 'Developing self-reliance and resource management skills during expeditions to remote regions.'
       },
       {
-        src: 'images/personal_section/Rosh_Selfie_1.JPEG',
+        src: 'images/personal_section/Rosh_Selfie_1.jpeg',
         title: 'Global Perspective Development',
         description: 'Building a global mindset through diverse travel experiences across different continents.'
       },
       {
-        src: 'images/personal_section/Rosh_Chicago.JPEG',
+        src: 'images/personal_section/Rosh_Chicago.jpeg',
         title: 'Urban Innovation Exploration',
         description: 'Studying urban development and technological innovation in major metropolitan centers like Chicago.'
       }
@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Building teamwork, strategy development, and competitive spirit through organized sports participation.'
       },
       {
-        src: 'images/personal_section/Rosh_Force_Car.JPEG',
+        src: 'images/personal_section/Rosh_Force_Car.jpeg',
         title: 'Technical Vehicle Operation',
         description: 'Applying technical knowledge and mechanical understanding during off-road vehicle operations.'
       }
