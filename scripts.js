@@ -455,37 +455,37 @@ document.addEventListener('DOMContentLoaded', function () {
   window.openPersonalGallery = function() {
     const photos = [
       {
-        src: 'images/personal_section/Rosh_Alton_2024_1.jpg',
+        src: 'images/personal_section/Rosh_Alton_2024_1.JPG',
         title: 'Exploring Historic Alton',
         description: 'Discovering the rich history and architecture of Alton, Illinois while building connections in the local community.'
       },
       {
-        src: 'images/personal_section/Rosh_Alton_2024_2.jpg',
+        src: 'images/personal_section/Rosh_Alton_2024_2.JPG',
         title: 'Alton Community Engagement',
         description: 'Networking and engaging with community members in downtown Alton, demonstrating strong interpersonal skills.'
       },
       {
-        src: 'images/personal_section/Rosh_Cougar_Lake_2024.jpg',
+        src: 'images/personal_section/Rosh_Cougar_Lake_2024.JPG',
         title: 'Strategic Reflection at Cougar Lake',
         description: 'Taking time for strategic thinking and planning by the peaceful Cougar Lake, balancing work with mindfulness.'
       },
       {
-        src: 'images/personal_section/Roshan_HorshoeLake_Aug2024.jpg',
+        src: 'images/personal_section/Roshan_HorshoeLake_Aug2024.JPG',
         title: 'Team Building at Horseshoe Lake',
         description: 'Developing team collaboration skills during a summer gathering at Horseshoe Lake in August 2024.'
       },
       {
-        src: 'images/personal_section/Rosh_in_snow_1.jpg',
+        src: 'images/personal_section/Rosh_in_snow_1.JPG',
         title: 'Adapting to Challenges',
         description: 'Demonstrating adaptability and resilience while navigating challenging conditions during winter in Illinois.'
       },
       {
-        src: 'images/personal_section/Rosh_in_snow_2.jpg',
+        src: 'images/personal_section/Rosh_in_snow_2.JPG',
         title: 'Perseverance in Adverse Conditions',
         description: 'Showing determination and problem-solving skills in snowy environments, qualities that translate to project challenges.'
       },
       {
-        src: 'images/personal_section/Rosh_Edwardsville_Sep2024.jpg',
+        src: 'images/personal_section/Rosh_Edwardsville_Sep2024.JPG',
         title: 'Professional Development in Edwardsville',
         description: 'Engaging in professional networking and community events in Edwardsville to expand industry connections.'
       }
@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.openAcademicGallery = function() {
     const photos = [
       {
-        src: 'images/personal_section/Rosh_Speaking.jpg',
+        src: 'images/personal_section/Rosh_Speaking.JPG',
         title: 'Technical Presentation Delivery',
         description: 'Confidently presenting complex technical concepts to diverse audiences, showcasing communication and leadership skills.'
       },
@@ -534,62 +534,62 @@ document.addEventListener('DOMContentLoaded', function () {
   window.openTravelGallery = function() {
     const photos = [
       {
-        src: 'images/personal_section/Rosh_Manali_India.1.jpg',
+        src: 'images/personal_section/Rosh_Manali_India.1.JPG',
         title: 'Strategic Planning in Manali',
         description: 'Developing strategic thinking skills while navigating complex mountain terrains in Manali, India.'
       },
       {
-        src: 'images/personal_section/Rosh_Manali_India_2.jpg',
+        src: 'images/personal_section/Rosh_Manali_India_2.JPG',
         title: 'Risk Assessment in Himalayas',
         description: 'Applying risk assessment and management skills during challenging treks in the Himalayan region.'
       },
       {
-        src: 'images/personal_section/Rosh_Manali_India.jpg',
+        src: 'images/personal_section/Rosh_Manali_India.JPG',
         title: 'Adapting to New Environments',
         description: 'Demonstrating adaptability and quick learning in unfamiliar cultural and geographical settings.'
       },
       {
-        src: 'images/personal_section/Rosh_Kurintar.jpg',
+        src: 'images/personal_section/Rosh_Kurintar.JPG',
         title: 'Problem Solving in Kurintar',
         description: 'Applying analytical thinking to navigate and overcome challenges in diverse outdoor settings.'
       },
       {
-        src: 'images/personal_section/Rosh_Kalinchowk_Two.jpg',
+        src: 'images/personal_section/Rosh_Kalinchowk_Two.JPG',
         title: 'Goal-Oriented Trekking',
         description: 'Setting and achieving challenging goals during demanding treks to high-altitude destinations.'
       },
       {
-        src: 'images/personal_section/Rosh_Kalinchowk_Snow.jpg',
+        src: 'images/personal_section/Rosh_Kalinchowk_Snow.JPG',
         title: 'Resilience in Extreme Conditions',
         description: 'Building resilience and determination while operating in challenging, high-stakes environments.'
       },
       {
-        src: 'images/personal_section/Rosh_in_woods.jpg',
+        src: 'images/personal_section/Rosh_in_woods.JPG',
         title: 'Strategic Navigation Skills',
         description: 'Developing strong navigation and orientation skills during exploratory forest expeditions.'
       },
       {
-        src: 'images/personal_section/Rosh_In_the_woods.jpg',
+        src: 'images/personal_section/Rosh_In_the_woods.JPG',
         title: 'Systematic Outdoor Planning',
         description: 'Applying systematic thinking and planning during extended outdoor navigation challenges.'
       },
       {
-        src: 'images/personal_section/Rosh_Chitwan.jpg',
+        src: 'images/personal_section/Rosh_Chitwan.JPG',
         title: 'Wildlife Conservation Awareness',
         description: 'Gaining appreciation for biodiversity and environmental conservation at Chitwan National Park.'
       },
       {
-        src: 'images/personal_section/Rosh_Chitlang.jpg',
+        src: 'images/personal_section/Rosh_Chitlang.JPG',
         title: 'Cultural Immersion Experience',
         description: 'Engaging with diverse cultures and communities during travels through rural Nepal.'
       },
       {
-        src: 'images/personal_section/Rosh_Chitlang_3.jpg',
+        src: 'images/personal_section/Rosh_Chitlang_3.JPG',
         title: 'Rural Community Engagement',
         description: 'Building cross-cultural communication skills while interacting with local communities in Chitlang.'
       },
       {
-        src: 'images/personal_section/Rosh_Brewery_Tour.jpg',
+        src: 'images/personal_section/Rosh_Brewery_Tour.JPG',
         title: 'Industrial Process Observation',
         description: 'Studying operational processes and quality control during an educational brewery tour.'
       },
@@ -616,27 +616,27 @@ document.addEventListener('DOMContentLoaded', function () {
   window.openSportsGallery = function() {
     const photos = [
       {
-        src: 'images/personal_section/Rosh_Dirt_Bike.jpg',
+        src: 'images/personal_section/Rosh_Dirt_Bike.JPG',
         title: 'Risk Management in Action',
         description: 'Applying calculated risk assessment and quick decision-making during high-adrenaline dirt biking.'
       },
       {
-        src: 'images/personal_section/Rosh_Boating.jpg',
+        src: 'images/personal_section/Rosh_Boating.JPG',
         title: 'Water Navigation Leadership',
         description: 'Demonstrating leadership and coordination skills while managing water-based activities and safety protocols.'
       },
       {
-        src: 'images/personal_section/Rosh_Blood_Donation.jpg',
+        src: 'images/personal_section/Rosh_Blood_Donation.JPG',
         title: 'Community Service Commitment',
         description: 'Demonstrating social responsibility and commitment to community welfare through regular blood donation.'
       },
       {
-        src: 'images/personal_section/Rosh_Waterfall_Chitlang.jpg',
+        src: 'images/personal_section/Rosh_Waterfall_Chitlang.JPG',
         title: 'Exploratory Research Skills',
         description: 'Applying investigative and research skills during exploratory trips to natural landmarks and formations.'
       },
       {
-        src: 'images/personal_section/Rosh_Cricket.jpg',
+        src: 'images/personal_section/Rosh_Cricket.JPG',
         title: 'Team Strategy Development',
         description: 'Building teamwork, strategy development, and competitive spirit through organized sports participation.'
       },
