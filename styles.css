@@ -15,6 +15,7 @@ body {
 section[id] {
   scroll-margin-top: 100px;
 }
+
 /* =========================================================
    STATE-OF-THE-ART NAVIGATION SYSTEM
    ========================================================= */
@@ -88,7 +89,6 @@ section[id] {
 .nav-logo:hover .logo-text::after {
   width: 100%;
 }
-
 
 /* =========================================================
    DESKTOP NAVIGATION
@@ -416,7 +416,7 @@ section[id] {
   .hero-image {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Keep it circular */
+    border-radius: 50%;
   }
 }
 
@@ -765,6 +765,7 @@ section[id] {
 #mobileMenu nav a:nth-child(7) { animation-delay: 0.35s; }
 #mobileMenu nav a:nth-child(8) { animation-delay: 0.4s; }
 #mobileMenu nav a:nth-child(9) { animation-delay: 0.45s; }
+#mobileMenu nav a:nth-child(10) { animation-delay: 0.5s; }
 
 @keyframes linkSlideIn {
   to {
@@ -960,238 +961,206 @@ section[id] {
 }
 
 .pill.blue { background: rgba(59,130,246,0.10); border-color: rgba(59,130,246,0.25); color: #1d4ed8; }
-.pill.green { background: rgba(34,197,94,0.10); border-color: rgba(34,197,94,0.25); color: #166534; }
+.pill.green { background: rgba(34,197,94,0.25); color: #166534; }
 .pill.amber { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.25); color: #92400e; }
 .pill.gray { background: rgba(107,114,128,0.10); border-color: rgba(107,114,128,0.25); color: #374151; }
-
 .project-modal-shell {
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 28px 80px rgba(0,0,0,0.25);
+background: #ffffff;
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 28px 80px rgba(0,0,0,0.25);
 }
-
 .project-modal-header {
-  background: linear-gradient(135deg, rgba(66,133,244,0.14), rgba(52,168,83,0.12));
-  border-bottom: 1px solid rgba(229,231,235,1);
-  padding: 18px 18px;
+background: linear-gradient(135deg, rgba(66,133,244,0.14), rgba(52,168,83,0.12));
+border-bottom: 1px solid rgba(229,231,235,1);
+padding: 18px 18px;
 }
-
 .project-modal-title {
-  font-size: 1.35rem;
-  font-weight: 900;
-  color: #111827;
-  line-height: 1.25;
+font-size: 1.35rem;
+font-weight: 900;
+color: #111827;
+line-height: 1.25;
 }
-
 .project-modal-subtitle {
-  margin-top: 6px;
-  font-size: 0.92rem;
-  color: #4b5563;
-  font-weight: 700;
+margin-top: 6px;
+font-size: 0.92rem;
+color: #4b5563;
+font-weight: 700;
 }
-
 .case-section-title {
-  font-size: 0.95rem;
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  color: #111827;
-  text-transform: uppercase;
-  margin-top: 18px;
-  margin-bottom: 8px;
+font-size: 0.95rem;
+font-weight: 900;
+letter-spacing: 0.02em;
+color: #111827;
+text-transform: uppercase;
+margin-top: 18px;
+margin-bottom: 8px;
 }
-
 .case-box {
-  border: 1px solid rgba(229,231,235,1);
-  border-radius: 14px;
-  padding: 14px;
-  background: #f9fafb;
+border: 1px solid rgba(229,231,235,1);
+border-radius: 14px;
+padding: 14px;
+background: #f9fafb;
 }
-
 .case-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 14px;
 }
-
 .btn-primary, .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-weight: 900;
-  font-size: 0.9rem;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 10px 14px;
+border-radius: 12px;
+font-weight: 900;
+font-size: 0.9rem;
+transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
-
 .btn-primary {
-  background: #111827;
-  color: #ffffff;
-  box-shadow: 0 10px 24px rgba(17,24,39,0.18);
+background: #111827;
+color: #ffffff;
+box-shadow: 0 10px 24px rgba(17,24,39,0.18);
 }
-
-.btn-primary:hover { 
-  transform: translateY(-2px); 
-  background-color: #1E90FF;
+.btn-primary:hover {
+transform: translateY(-2px);
+background-color: #1E90FF;
 }
-
 .btn-ghost {
-  background: #ffffff;
-  border: 1px solid rgba(229,231,235,1);
-  color: #111827;
+background: #ffffff;
+border: 1px solid rgba(229,231,235,1);
+color: #111827;
 }
-
 .btn-ghost:hover { transform: translateY(-2px); }
-
 .modal-close-pill {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 1px solid rgba(229,231,235,1);
-  background: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  line-height: 1;
-  color: #111827;
-  cursor: pointer;
-  transition: transform 180ms ease, background 180ms ease;
+width: 44px;
+height: 44px;
+border-radius: 999px;
+border: 1px solid rgba(229,231,235,1);
+background: #ffffff;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+font-size: 1.8rem;
+line-height: 1;
+color: #111827;
+cursor: pointer;
+transition: transform 180ms ease, background 180ms ease;
 }
-
 .modal-close-pill:hover {
-  transform: scale(1.06);
-  background: #f9fafb;
-  color: #ef4444;
+transform: scale(1.06);
+background: #f9fafb;
+color: #ef4444;
 }
-
 /* =========================================================
-   UI ENHANCEMENTS
-   ========================================================= */
-
+UI ENHANCEMENTS
+========================================================= */
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+transform: scale(1.05);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .section-banner {
-  background: linear-gradient(90deg, #1E90FF, #32CD32);
-  height: 4px;
-  margin-bottom: 1rem;
+background: linear-gradient(90deg, #1E90FF, #32CD32);
+height: 4px;
+margin-bottom: 1rem;
 }
-
 h1, h2, h3 {
-  font-family: 'Roboto', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
-
 .container {
-  padding: 2rem;
+padding: 2rem;
 }
-
 .shadow-lg {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-.flex.flex-col.sm\:flex-row.justify-center.items-center.gap-4.mb-12 {
-  margin-bottom: 0;
+.flex.flex-col.sm:flex-row.justify-center.items-center.gap-4.mb-12 {
+margin-bottom: 0;
 }
-
 #about {
-  padding-top: 2rem;
+padding-top: 2rem;
 }
-
 .hero {
-  background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(50,205,50,1) 100%);
-  color: white;
-  text-align: center;
-  padding: 5rem 0;
+background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(50,205,50,1) 100%);
+color: white;
+text-align: center;
+padding: 5rem 0;
 }
-
 .hero h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+font-size: 3rem;
+font-weight: bold;
+margin-bottom: 1rem;
 }
-
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+font-size: 1.25rem;
+margin-bottom: 2rem;
 }
-
 footer {
-  background-color: #2D3748;
-  color: #A0AEC0;
-  text-align: center;
-  padding: 2rem 0;
+background-color: #2D3748;
+color: #A0AEC0;
+text-align: center;
+padding: 2rem 0;
 }
-
 footer .social-icons a {
-  font-size: 1.5rem;
-  margin: 0 0.5rem;
-  transition: color 0.3s;
+font-size: 1.5rem;
+margin: 0 0.5rem;
+transition: color 0.3s;
 }
-
 footer .social-icons a:hover {
-  color: white;
-
+color: white;
+}
 /* =========================================================
-   UNIVERSAL CARD HOVER EFFECTS - ADD THIS TO YOUR styles.css
-   ========================================================= */
-
+UNIVERSAL CARD HOVER EFFECTS
+========================================================= */
 /* Base card styling with gradient glow effect */
 .hover-scale,
 .certificate-grid > div,
 .awards-card,
 .certification-card,
-[class*="bg-white"][class*="p-6"][class*="rounded"],
+[class="bg-white"][class*="p-6"][class*="rounded"],
 [class*="bg-blue-50"][class*="p-6"][class*="rounded"],
 [class*="bg-gray-50"][class*="p-6"][class*="rounded"] {
-  position: relative;
-  overflow: visible;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  z-index: 0;
+position: relative;
+overflow: visible;
+transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+z-index: 0;
 }
-
 /* Gradient glow effect behind cards */
 .hover-scale::before,
 .certificate-grid > div::before,
 .awards-card::before,
 .certification-card::before,
-[class*="bg-white"][class*="p-6"][class*="rounded"]::before,
+[class="bg-white"][class*="p-6"][class*="rounded"]::before,
 [class*="bg-blue-50"][class*="p-6"][class*="rounded"]::before,
 [class*="bg-gray-50"][class*="p-6"][class*="rounded"]::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, 
-    rgba(66, 133, 244, 0.35), 
-    rgba(52, 168, 83, 0.28), 
-    rgba(251, 188, 5, 0.20)
-  );
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(12px);
-  pointer-events: none;
+content: "";
+position: absolute;
+inset: -10px;
+border-radius: 22px;
+background: linear-gradient(135deg,
+rgba(66, 133, 244, 0.35),
+rgba(52, 168, 83, 0.28),
+rgba(251, 188, 5, 0.20)
+);
+z-index: -1;
+opacity: 0;
+transition: opacity 0.3s ease;
+filter: blur(12px);
+pointer-events: none;
 }
-
 /* Hover state - show glow and lift card */
 .hover-scale:hover,
 .certificate-grid > div:hover,
 .awards-card:hover,
 .certification-card:hover,
-[class*="bg-white"][class*="p-6"][class*="rounded"]:hover,
+[class="bg-white"][class*="p-6"][class*="rounded"]:hover,
 [class*="bg-blue-50"][class*="p-6"][class*="rounded"]:hover,
 [class*="bg-gray-50"][class*="p-6"][class*="rounded"]:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.14);
+transform: translateY(-6px);
+box-shadow: 0 18px 45px rgba(17, 24, 39, 0.14);
 }
-
 .hover-scale:hover::before,
 .certificate-grid > div:hover::before,
 .awards-card:hover::before,
@@ -1199,354 +1168,353 @@ footer .social-icons a:hover {
 [class*="bg-white"][class*="p-6"][class*="rounded"]:hover::before,
 [class*="bg-blue-50"][class*="p-6"][class*="rounded"]:hover::before,
 [class*="bg-gray-50"][class*="p-6"][class*="rounded"]:hover::before {
-  opacity: 1;
+opacity: 1;
 }
-
 /* Specific styling for education cards */
 #education .hover-scale {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+background: #ffffff;
+border: 1px solid #e5e7eb;
 }
-
 #education .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
+border-color: rgba(66, 133, 244, 0.35);
 }
-
 /* Specific styling for about section cards */
 #about .hover-scale {
-  background: #eff6ff;
+background: #eff6ff;
 }
-
 /* Certification and Awards cards */
 .certificate-grid > div {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+cursor: pointer;
 }
-
 .certificate-grid > div:hover {
-  border-color: rgba(66, 133, 244, 0.35);
-  background-color: #f9fafb;
+border-color: rgba(66, 133, 244, 0.35);
+background-color: #f9fafb;
 }
-
 /* Way To Go Awards cards */
-[class*="border-4"][class*="border-black"] {
-  border: 2px solid #e5e7eb !important;
-  background: #eff6ff;
+[class="border-4"][class*="border-black"] {
+border: 2px solid #e5e7eb !important;
+background: #eff6ff;
 }
-
 [class*="border-4"][class*="border-black"]:hover {
-  border-color: rgba(66, 133, 244, 0.5) !important;
+border-color: rgba(66, 133, 244, 0.5) !important;
 }
-
 /* Workshop cards */
 #workshops .hover-scale {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+cursor: pointer;
 }
-
 #workshops .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
+border-color: rgba(66, 133, 244, 0.35);
 }
-
 /* Affiliations cards */
 #affiliations .hover-scale {
-  background: #eff6ff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
+background: #eff6ff;
+border: 1px solid #e5e7eb;
+cursor: pointer;
 }
-
 #affiliations .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
+border-color: rgba(66, 133, 244, 0.35);
 }
-
 /* Timeline items - subtle hover effect */
 .timeline-item {
-  transition: transform 0.2s ease, opacity 0.2s ease;
+transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
 .timeline-item:hover {
-  transform: translateX(4px);
-  opacity: 0.95;
+transform: translateX(4px);
+opacity: 0.95;
 }
-
 /* Contact icons hover effect */
 #contact .hover-scale {
-  transition: transform 0.3s ease, filter 0.3s ease;
+transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 #contact .hover-scale:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 8px 16px rgba(30, 144, 255, 0.4));
+transform: scale(1.15);
+filter: drop-shadow(0 8px 16px rgba(30, 144, 255, 0.4));
 }
-
 /* Ensure smooth transitions for all interactive elements */
-* {
-  -webkit-tap-highlight-color: transparent;
+
+{
+-webkit-tap-highlight-color: transparent;
 }
 
 /* Prevent double transform on nested elements */
 .hover-scale .hover-scale {
-  transform: none;
+transform: none;
 }
-
 .hover-scale .hover-scale:hover {
-  transform: none;
+transform: none;
 }
-
 /* Active/pressed state for cards */
 .hover-scale:active,
 .certificate-grid > div:active,
 .awards-card:active,
 .certification-card:active {
-  transform: translateY(-3px) scale(0.98);
+transform: translateY(-3px) scale(0.98);
 }
-
 /* Focus state for accessibility */
 .hover-scale:focus-visible,
 .certificate-grid > div:focus-visible,
 .awards-card:focus-visible,
 .certification-card:focus-visible {
-  outline: 2px solid #1E90FF;
-  outline-offset: 4px;
+outline: 2px solid #1E90FF;
+outline-offset: 4px;
 }
-
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .hover-scale,
-  .hover-scale::before,
-  .certificate-grid > div,
-  .certificate-grid > div::before,
-  .awards-card,
-  .awards-card::before,
-  .certification-card,
-  .certification-card::before,
-  [class*="bg-white"][class*="p-6"][class*="rounded"],
-  [class*="bg-white"][class*="p-6"][class*="rounded"]::before,
-  [class*="bg-blue-50"][class*="p-6"][class*="rounded"],
-  [class*="bg-blue-50"][class*="p-6"][class*="rounded"]::before,
-  [class*="bg-gray-50"][class*="p-6"][class*="rounded"],
-  [class*="bg-gray-50"][class*="p-6"][class*="rounded"]::before {
-    transition: none !important;
-  }
+.hover-scale,
+.hover-scale::before,
+.certificate-grid > div,
+.certificate-grid > div::before,
+.awards-card,
+.awards-card::before,
+.certification-card,
+.certification-card::before,
+[class="bg-white"][class*="p-6"][class*="rounded"],
+[class*="bg-white"][class*="p-6"][class*="rounded"]::before,
+[class*="bg-blue-50"][class*="p-6"][class*="rounded"],
+[class*="bg-blue-50"][class*="p-6"][class*="rounded"]::before,
+[class*="bg-gray-50"][class*="p-6"][class*="rounded"],
+[class*="bg-gray-50"][class*="p-6"][class*="rounded"]::before {
+transition: none !important;
+}
+}
+/* =========================================================
+LIFE GALLERY MODAL - PROPER SCROLLING & POSITIONING
+========================================================= */
+#lifeGalleryModal {
+position: fixed;
+inset: 0;
+z-index: 100010;
+background: rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+display: none;
+align-items: flex-start;
+justify-content: center;
+padding: 2rem 1rem;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
+#lifeGalleryModal.flex {
+display: flex;
+}
+#lifeGalleryModal > div {
+width: 100%;
+max-width: 56rem;
+margin: auto;
+background: white;
+border-radius: 1rem;
+box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+display: flex;
+flex-direction: column;
+max-height: calc(100vh - 4rem);
+}
+/* Modal Header - Fixed at top */
+#lifeGalleryModal .p-6.border-b {
+flex-shrink: 0;
+position: sticky;
+top: 0;
+background: white;
+z-index: 10;
+border-bottom: 1px solid #e5e7eb;
+}
+/* Modal Content - Scrollable */
+#lifeGalleryContent {
+flex: 1;
+overflow-y: auto;
+padding: 1.5rem;
+background: #f9fafb;
+}
+/* Close button positioning */
+#lifeGalleryModal button[aria-label="Close"] {
+flex-shrink: 0;
+width: 3rem;
+height: 3rem;
+border-radius: 9999px;
+border: 2px solid #e5e7eb;
+background: white;
+color: #1f2937;
+font-size: 1.875rem;
+line-height: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.2s ease;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+#lifeGalleryModal button[aria-label="Close"]:hover {
+background: #f3f4f6;
+color: #ef4444;
+border-color: #ef4444;
+transform: scale(1.05);
+}
+/* Title styling */
+#lifeGalleryTitle {
+font-size: 1.5rem;
+font-weight: 700;
+color: #1f2937;
+line-height: 1.4;
+}
+/* Photo grid inside modal */
+#lifeGalleryContent .grid {
+gap: 1.5rem;
+}
+#lifeGalleryContent img {
+width: 100%;
+height: 16rem;
+object-fit: cover;
+border-radius: 0.5rem;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#lifeGalleryContent img:hover {
+transform: scale(1.02);
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+#lifeGalleryModal {
+padding: 1rem 0.5rem;
+}
+#lifeGalleryModal > div {
+max-height: calc(100vh - 2rem);
+border-radius: 0.75rem;
+}
+#lifeGalleryTitle {
+font-size: 1.25rem;
+}
+#lifeGalleryContent {
+padding: 1rem;
+}
+#lifeGalleryContent img {
+height: 12rem;
+}
+}
+@media (max-height: 600px) {
+#lifeGalleryModal {
+padding: 0.5rem;
+}
+#lifeGalleryContent img {
+height: 10rem;
+}
+}
+/* =========================================================
+BACK TO TOP BUTTON
+========================================================= */
+.back-to-top {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: linear-gradient(135deg, #1E90FF, #32CD32);
+color: white;
+border: none;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
+transition: all 0.3s ease;
+z-index: 1000;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.25rem;
 }
 
-/* Ensure project cards keep their special styling */
-.project-item {
-  /* Keep existing project-item styles */
+.back-to-top:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(30, 144, 255, 0.6);
 }
 
-.project-item::before {
-  /* Keep existing project-item::before styles */
+.back-to-top.hidden {
+opacity: 0;
+pointer-events: none;
+display: none !important;
 }
 
-
+/* Add to styles.css */
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2rem;
+}
+.hero p {
+font-size: 1rem;
+}
+h2 {
+font-size: 1.75rem;
+}
+h3 {
+font-size: 1.25rem;
+}
 }
 
 /* =========================================================
-   UNIVERSAL CARD HOVER EFFECTS 
+   ENHANCED MODAL CLOSE BUTTON - SIMPLIFIED
    ========================================================= */
 
-/* Base card styling with gradient glow effect */
-.hover-scale,
-.certificate-grid > div,
-.awards-card,
-.certification-card,
-[class*="bg-white"][class*="p-6"][class*="rounded"],
-[class*="bg-blue-50"][class*="p-6"][class*="rounded"],
-[class*="bg-gray-50"][class*="p-6"][class*="rounded"] {
-  position: relative;
-  overflow: visible;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  z-index: 0;
+/* Ensure modal is properly positioned and z-indexed */
+#modal {
+  z-index: 100001 !important;
+  padding-top: 80px !important;
+  align-items: flex-start !important;
+  overflow-y: auto !important;
+  display: none !important;
 }
 
-/* Gradient glow effect behind cards */
-.hover-scale::before,
-.certificate-grid > div::before,
-.awards-card::before,
-.certification-card::before,
-[class*="bg-white"][class*="p-6"][class*="rounded"]::before,
-[class*="bg-blue-50"][class*="p-6"][class*="rounded"]::before,
-[class*="bg-gray-50"][class*="p-6"][class*="rounded"]::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, 
-    rgba(66, 133, 244, 0.35), 
-    rgba(52, 168, 83, 0.28), 
-    rgba(251, 188, 5, 0.20)
-  );
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(12px);
-  pointer-events: none;
+#modal.show {
+  display: flex !important;
 }
 
-/* Hover state - show glow and lift card */
-.hover-scale:hover,
-.certificate-grid > div:hover,
-.awards-card:hover,
-.certification-card:hover,
-[class*="bg-white"][class*="p-6"][class*="rounded"]:hover,
-[class*="bg-blue-50"][class*="p-6"][class*="rounded"]:hover,
-[class*="bg-gray-50"][class*="p-6"][class*="rounded"]:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.14);
+/* Certificate modal container */
+#modal > .bg-white.rounded-lg.shadow-2xl.max-w-lg.w-full.pt-12.px-6.pb-6.relative {
+  margin-top: 60px !important;
+  margin-bottom: 40px !important;
+  position: relative !important;
+  max-height: calc(100vh - 140px) !important;
+  overflow-y: auto !important;
 }
 
-.hover-scale:hover::before,
-.certificate-grid > div:hover::before,
-.awards-card:hover::before,
-.certification-card:hover::before,
-[class*="bg-white"][class*="p-6"][class*="rounded"]:hover::before,
-[class*="bg-blue-50"][class*="p-6"][class*="rounded"]:hover::before,
-[class*="bg-gray-50"][class*="p-6"][class*="rounded"]:hover::before {
-  opacity: 1;
+/* Certificate modal close button - simple and clean */
+#modal button[aria-label="Close"] {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none !important;
+  background: #f3f4f6 !important;
+  color: #4b5563 !important;
+  font-size: 1.5rem !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  z-index: 10 !important;
+  transition: all 0.2s ease !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Specific styling for education cards */
-#education .hover-scale {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+#modal button[aria-label="Close"]:hover {
+  background-color: #ef4444 !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.2) !important;
 }
 
-#education .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
+#modal button[aria-label="Close"]:active {
+  transform: scale(0.95) !important;
 }
 
-/* Specific styling for about section cards */
-#about .hover-scale {
-  background: #eff6ff;
-}
-
-/* Certification and Awards cards */
-.certificate-grid > div {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
-}
-
-.certificate-grid > div:hover {
-  border-color: rgba(66, 133, 244, 0.35);
-  background-color: #f9fafb;
-}
-
-/* Way To Go Awards cards */
-[class*="border-4"][class*="border-black"] {
-  border: 2px solid #e5e7eb !important;
-  background: #eff6ff;
-}
-
-[class*="border-4"][class*="border-black"]:hover {
-  border-color: rgba(66, 133, 244, 0.5) !important;
-}
-
-/* Workshop cards */
-#workshops .hover-scale {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
-}
-
-#workshops .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
-}
-
-/* Affiliations cards */
-#affiliations .hover-scale {
-  background: #eff6ff;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
-}
-
-#affiliations .hover-scale:hover {
-  border-color: rgba(66, 133, 244, 0.35);
-}
-
-/* Timeline items - subtle hover effect */
-.timeline-item {
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.timeline-item:hover {
-  transform: translateX(4px);
-  opacity: 0.95;
-}
-
-/* Contact icons hover effect */
-#contact .hover-scale {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-#contact .hover-scale:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 8px 16px rgba(30, 144, 255, 0.4));
-}
-
-/* Ensure smooth transitions for all interactive elements */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Prevent double transform on nested elements */
-.hover-scale .hover-scale {
-  transform: none;
-}
-
-.hover-scale .hover-scale:hover {
-  transform: none;
-}
-
-/* Active/pressed state for cards */
-.hover-scale:active,
-.certificate-grid > div:active,
-.awards-card:active,
-.certification-card:active {
-  transform: translateY(-3px) scale(0.98);
-}
-
-/* Focus state for accessibility */
-.hover-scale:focus-visible,
-.certificate-grid > div:focus-visible,
-.awards-card:focus-visible,
-.certification-card:focus-visible {
-  outline: 2px solid #1E90FF;
-  outline-offset: 4px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .hover-scale,
-  .hover-scale::before,
-  .certificate-grid > div,
-  .certificate-grid > div::before,
-  .awards-card,
-  .awards-card::before,
-  .certification-card,
-  .certification-card::before,
-  [class*="bg-white"][class*="p-6"][class*="rounded"],
-  [class*="bg-white"][class*="p-6"][class*="rounded"]::before,
-  [class*="bg-blue-50"][class*="p-6"][class*="rounded"],
-  [class*="bg-blue-50"][class*="p-6"][class*="rounded"]::before,
-  [class*="bg-gray-50"][class*="p-6"][class*="rounded"],
-  [class*="bg-gray-50"][class*="p-6"][class*="rounded"]::before {
-    transition: none !important;
-  }
-}
-
-/* Ensure project cards keep their special styling */
-.project-item {
-  /* Keep existing project-item styles */
-}
-
-.project-item::before {
-  /* Keep existing project-item::before styles */
-}
-
+/* Back-to-top button - simple styling */
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -1561,6 +1529,10 @@ footer .social-icons a:hover {
   box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
   transition: all 0.3s ease;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
 }
 
 .back-to-top:hover {
@@ -1571,23 +1543,85 @@ footer .social-icons a:hover {
 .back-to-top.hidden {
   opacity: 0;
   pointer-events: none;
+  display: none !important;
 }
 
-/* Add to styles.css */
+/* Ensure modal content doesn't overlap close button */
+#modal .text-gray-700 {
+  padding-top: 1rem !important;
+}
+
+/* Modal image constraints */
+#modalImage {
+  max-height: 50vh !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Mobile responsiveness for modal close button */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
+  #modal {
+    padding-top: 70px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   
-  .hero p {
-    font-size: 1rem;
+  #modal > .bg-white.rounded-lg.shadow-2xl.max-w-lg.w-full.pt-12.px-6.pb-6.relative {
+    margin-top: 50px !important;
+    max-height: calc(100vh - 120px) !important;
   }
   
-  h2 {
-    font-size: 1.75rem;
+  #modal button[aria-label="Close"] {
+    top: 12px !important;
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.3rem !important;
   }
   
-  h3 {
-    font-size: 1.25rem;
+  .back-to-top {
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.1rem !important;
   }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  #modal {
+    padding-top: 65px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  
+  #modal > .bg-white.rounded-lg.shadow-2xl.max-w-lg.w-full.pt-12.px-6.pb-6.relative {
+    margin-top: 45px !important;
+    padding: 3rem 1rem 1.5rem 1rem !important;
+    max-height: calc(100vh - 110px) !important;
+  }
+  
+  #modal button[aria-label="Close"] {
+    top: 10px !important;
+    right: 10px !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1.2rem !important;
+    border-radius: 6px !important;
+  }
+  
+  .back-to-top {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden !important;
 }
