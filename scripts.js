@@ -1,6 +1,80 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Always go to homepage when clicking the Rosh logo
+  const logoLink = document.querySelector('.nav-logo');
+  if (logoLink) {
+  logoLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Check if we're already on the homepage
+    const currentPage = window.location.pathname;
+    const isIndexPage = currentPage.endsWith('index.html') || 
+                       currentPage.endsWith('/') || 
+                       currentPage === '';
+    
+    if (isIndexPage) {
+      // If already on homepage, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+      
+      // Also clear any hash from URL
+      if (window.location.hash) {
+        history.replaceState(null, null, ' ');
+      }
+    } else {
+      // If not on homepage, navigate to index.html
+      window.location.href = 'index.html';
+    }
+  });
+}
+
   // =========================================================
-  // MOBILE NAVIGATION (works with CSS: #mobileNavContainer.is-open)
+  // NAVIGATION HANDLING - NO SMOOTH SCROLLING
+  // =========================================================
+
+  // Disable smooth scrolling for all anchor links in desktop nav
+  const desktopNavLinks = document.querySelectorAll('#desktopNavLinks a[href^="#"]');
+  desktopNavLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // INSTANT SCROLL - NO ANIMATION
+        window.scrollTo({
+          top: targetElement.offsetTop - 80, // Adjust for navbar height
+          behavior: 'instant' // NO smooth scrolling
+        });
+      }
+    });
+  });
+
+  // =========================================================
+  // STATE MANAGEMENT
+  // =========================================================
+  let currentModal = null;
+  let scrollPosition = 0;
+  
+  // Save scroll position on refresh
+  if (sessionStorage.getItem('scrollPosition')) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: parseInt(sessionStorage.getItem('scrollPosition')),
+        behavior: 'instant' // Also make refresh instant
+      });
+    }, 100);
+  }
+  
+  // Save current scroll position
+  window.addEventListener('scroll', () => {
+    sessionStorage.setItem('scrollPosition', window.scrollY);
+  });
+
+  // =========================================================
+  // MOBILE NAVIGATION
   // =========================================================
   const navToggle = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNavContainer');
@@ -26,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.left = '';
     document.body.style.right = '';
     document.body.style.width = '';
-    window.scrollTo(0, scrollY);
+    document.documentElement.scrollTop = scrollY;
+    document.body.scrollTop = scrollY;
   }
 
   function openMobileNav() {
@@ -73,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Disable smooth scrolling for mobile nav links
   if (hasMobileNav) {
     mobileNav.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', function (e) {
@@ -83,13 +159,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         closeMobileNav();
 
-        requestAnimationFrame(() => {
+        setTimeout(() => {
           if (targetEl) {
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // INSTANT SCROLL - NO ANIMATION
+            window.scrollTo({
+              top: targetEl.offsetTop - 80,
+              behavior: 'instant' // NO smooth scrolling
+            });
           } else if (targetId) {
             window.location.hash = targetId;
           }
-        });
+        }, 50); // Small delay for mobile nav to close
       });
     });
   }
@@ -140,10 +220,87 @@ document.addEventListener('DOMContentLoaded', function () {
   highlightActiveSection(); // Run on load
 
   // =========================================================
-  // CERTIFICATE MODAL - WITH CLICK OUTSIDE TO CLOSE
+  // BACK TO TOP BUTTON FUNCTIONALITY - NO SMOOTH SCROLLING
+  // =========================================================
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  if (backToTopBtn) {
+    backToTopBtn.onclick = function() {
+      // INSTANT SCROLL - NO ANIMATION
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+    };
+    
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    // Initial check
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    }
+  }
+
+  // =========================================================
+  // MODAL MANAGEMENT WITH SCROLL LOCK
+  // =========================================================
+  function lockBodyScroll() {
+    // Just prevent scrolling without moving the page
+    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'relative';
+    document.body.style.height = '100vh';
+  }
+
+  function unlockBodyScroll() {
+    // Just re-enable scrolling
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.height = '';
+    
+    // NO SCROLLING NEEDED - we never moved!
+  }
+  
+  function closeAllModals() {
+    const modals = [
+      'modal',
+      'workshopGalleryModal',
+      'lifeGalleryModal',
+      'projectModal',
+      'biProjectModal',
+      'cyberProjectModal',
+      'dbProjectModal'
+    ];
+    
+    modals.forEach(modalId => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('show', 'flex');
+      }
+    });
+    
+    unlockBodyScroll();
+    currentModal = null;
+  }
+  
+  // =========================================================
+  // CERTIFICATE MODAL
   // =========================================================
   window.openModal = function (title, date, image, description = '') {
+    closeAllModals();
     const modal = document.getElementById('modal');
+    
+    // Reset modal content to top
+    modal.scrollTop = 0;
     
     // Update modal content
     document.getElementById('modalTitle').innerText = title;
@@ -153,60 +310,42 @@ document.addEventListener('DOMContentLoaded', function () {
       description || 'Certificate preview only.';
     
     // Show modal and prevent body scroll
-    document.body.classList.add('modal-open');
-    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     modal.classList.add('show');
+    lockBodyScroll();
+    currentModal = 'modal';
     
-    // Store scroll position before opening modal
-    modal._scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-    
-    // Lock body scroll
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${modal._scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
+    // Add click outside to close
+    setTimeout(() => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }, 100);
   };
 
   window.closeModal = function () {
     const modal = document.getElementById('modal');
-    
-    // Close modal and restore body scroll
-    document.body.classList.remove('modal-open');
-    modal.classList.add('hidden');
+    modal.style.display = 'none';
     modal.classList.remove('show');
-    
-    // Restore body scroll position
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    
-    // Restore scroll position
-    if (modal._scrollY !== undefined) {
-      window.scrollTo(0, modal._scrollY);
-    }
+    unlockBodyScroll();
+    currentModal = null;
   };
 
-  // Add click outside handler for certificate modal
-  const certificateModal = document.getElementById('modal');
-  if (certificateModal) {
-    certificateModal.addEventListener('click', function(e) {
-      if (e.target === certificateModal) {
-        window.closeModal();
-      }
-    });
-  }
-
   // =========================================================
-  // WORKSHOP GALLERY MODAL - WITH CLICK OUTSIDE TO CLOSE
+  // WORKSHOP GALLERY MODAL
   // =========================================================
   window.openWorkshopGallery = function (title, description, images) {
+    closeAllModals();
     const modal = document.getElementById('workshopGalleryModal');
     const modalTitle = document.getElementById('workshopGalleryTitle');
     const modalDesc = document.getElementById('workshopGalleryDesc');
     const galleryImages = document.getElementById('workshopGalleryImages');
+
+    // Reset to top
+    modal.scrollTop = 0;
+    galleryImages.scrollTop = 0;
 
     modalTitle.textContent = title;
     modalDesc.textContent = description;
@@ -217,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const img = document.createElement('img');
         img.src = image;
         img.alt = 'Workshop image';
-        img.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md');
+        img.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md', 'mb-4');
         galleryImages.appendChild(img);
       });
     } else {
@@ -227,35 +366,39 @@ document.addEventListener('DOMContentLoaded', function () {
       galleryImages.appendChild(msg);
     }
 
-    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     modal.classList.add('show');
+    lockBodyScroll();
+    currentModal = 'workshopGalleryModal';
+    
+    // THE FIX: Scroll everything to top after showing
+    setTimeout(() => {
+      // Scroll the modal container to top
+      modal.scrollTop = 0;
+      // Scroll the content area to top
+      galleryImages.scrollTop = 0;
+    }, 10);
+    
+    // Add click outside to close
+    setTimeout(() => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeWorkshopGallery();
+        }
+      });
+    }, 100);
   };
 
   window.closeWorkshopGallery = function () {
     const modal = document.getElementById('workshopGalleryModal');
-    const modalTitle = document.getElementById('workshopGalleryTitle');
-    const modalDesc = document.getElementById('workshopGalleryDesc');
-    const galleryImages = document.getElementById('workshopGalleryImages');
-
-    modal.classList.add('hidden');
+    modal.style.display = 'none';
     modal.classList.remove('show');
-    modalTitle.innerText = '';
-    modalDesc.innerText = '';
-    galleryImages.innerHTML = '';
+    unlockBodyScroll();
+    currentModal = null;
   };
 
-  // Add click outside handler for workshop modal
-  const workshopModal = document.getElementById('workshopGalleryModal');
-  if (workshopModal) {
-    workshopModal.addEventListener('click', function(e) {
-      if (e.target === workshopModal) {
-        window.closeWorkshopGallery();
-      }
-    });
-  }
-
   // =========================================================
-  // RESEARCH PROJECT MODALS - WITH CLICK OUTSIDE TO CLOSE
+  // RESEARCH PROJECT MODALS
   // =========================================================
 
   window.closeAllProjectModals = function () {
@@ -263,193 +406,139 @@ document.addEventListener('DOMContentLoaded', function () {
       const modal = document.getElementById(id);
       if (!modal) return;
 
+      modal.style.display = 'none';
       modal.classList.remove('flex');
-      modal.classList.remove('show');
-      modal.classList.add('hidden');
     });
   };
 
+  // Helper function to open project modals with improved visibility
+  function openProjectModalFunction(modalId) {
+    closeAllModals();
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    
+    // Reset to top
+    const contentContainer = modal.querySelector('div:last-child');
+    if (contentContainer) {
+      contentContainer.scrollTop = 0;
+    }
+    
+    modal.style.display = 'flex';
+    modal.classList.add('flex');
+    lockBodyScroll();
+    currentModal = modalId;
+    
+    // Ensure header is visible by scrolling modal to top
+    setTimeout(() => {
+      modal.scrollTop = 0;
+    }, 10);
+    
+    // Add click outside to close
+    setTimeout(() => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          eval(`close${modalId.charAt(0).toUpperCase() + modalId.slice(1)}()`);
+        }
+      });
+    }, 100);
+  }
+
   // SIUE Nexus
   window.openProjectModal = function () {
-    window.closeAllProjectModals();
-    const modal = document.getElementById('projectModal');
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    openProjectModalFunction('projectModal');
   };
 
   window.closeProjectModal = function () {
     const modal = document.getElementById('projectModal');
     if (!modal) return;
+    modal.style.display = 'none';
     modal.classList.remove('flex');
-    modal.classList.add('hidden');
+    unlockBodyScroll();
+    currentModal = null;
   };
 
   // BI Project (CMIS 566)
   window.openBIProjectModal = function () {
-    window.closeAllProjectModals();
-    const modal = document.getElementById('biProjectModal');
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    openProjectModalFunction('biProjectModal');
   };
 
   window.closeBIProjectModal = function () {
     const modal = document.getElementById('biProjectModal');
     if (!modal) return;
+    modal.style.display = 'none';
     modal.classList.remove('flex');
-    modal.classList.add('hidden');
+    unlockBodyScroll();
+    currentModal = null;
   };
 
   // Cybersecurity Project (CMIS 422)
   window.openCyberProjectModal = function () {
-    window.closeAllProjectModals();
-    const modal = document.getElementById('cyberProjectModal');
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    openProjectModalFunction('cyberProjectModal');
   };
 
   window.closeCyberProjectModal = function () {
     const modal = document.getElementById('cyberProjectModal');
     if (!modal) return;
+    modal.style.display = 'none';
     modal.classList.remove('flex');
-    modal.classList.add('hidden');
+    unlockBodyScroll();
+    currentModal = null;
   };
 
   // DB Project (CMIS 564)
   window.openDBProjectModal = function () {
-    window.closeAllProjectModals();
-    const modal = document.getElementById('dbProjectModal');
-    if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    openProjectModalFunction('dbProjectModal');
   };
 
   window.closeDBProjectModal = function () {
     const modal = document.getElementById('dbProjectModal');
     if (!modal) return;
+    modal.style.display = 'none';
     modal.classList.remove('flex');
-    modal.classList.add('hidden');
+    unlockBodyScroll();
+    currentModal = null;
   };
 
-  // Add click outside handlers for all project modals
-  const projectModals = [
-    { id: 'projectModal', closeFunc: window.closeProjectModal },
-    { id: 'biProjectModal', closeFunc: window.closeBIProjectModal },
-    { id: 'cyberProjectModal', closeFunc: window.closeCyberProjectModal },
-    { id: 'dbProjectModal', closeFunc: window.closeDBProjectModal }
-  ];
-
-  projectModals.forEach(({ id, closeFunc }) => {
-    const modal = document.getElementById(id);
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          closeFunc();
-        }
-      });
-    }
-  });
-
-  // ESC closes any open project modal
+  // =========================================================
+  // ESC KEY TO CLOSE MODALS
+  // =========================================================
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     
-    // Close certificate modal first
-    const modal = document.getElementById('modal');
-    if (modal && !modal.classList.contains('hidden')) {
-      window.closeModal();
-      return;
+    if (currentModal) {
+      switch(currentModal) {
+        case 'modal':
+          closeModal();
+          break;
+        case 'workshopGalleryModal':
+          closeWorkshopGallery();
+          break;
+        case 'lifeGalleryModal':
+          closeLifeGallery();
+          break;
+        case 'projectModal':
+          closeProjectModal();
+          break;
+        case 'biProjectModal':
+          closeBIProjectModal();
+          break;
+        case 'cyberProjectModal':
+          closeCyberProjectModal();
+          break;
+        case 'dbProjectModal':
+          closeDBProjectModal();
+          break;
+      }
     }
     
-    // Also close other modals on ESC
-    if (certificateModal && !certificateModal.classList.contains('hidden')) {
-      window.closeModal();
+    // Also close mobile nav
+    if (hasMobileNav && mobileNav.classList.contains('is-open')) {
+      closeMobileNav();
     }
-    if (workshopModal && !workshopModal.classList.contains('hidden')) {
-      window.closeWorkshopGallery();
-    }
-    // Close life gallery modal on ESC
-    const lifeGalleryModal = document.getElementById('lifeGalleryModal');
-    if (lifeGalleryModal && lifeGalleryModal.classList.contains('flex')) {
-      window.closeLifeGallery();
-    }
-    
-    // Close project modals
-    window.closeAllProjectModals();
   });
 
   // =========================================================
-  // LIFE & INTERESTS MODAL - WITH CLICK OUTSIDE TO CLOSE
-  // =========================================================
-  window.openLifeModal = function(title, image, description) {
-    const modal = document.getElementById('lifeModal');
-    if (!modal) return;
-    document.getElementById('lifeModalTitle').innerText = title;
-    document.getElementById('lifeModalImage').src = image;
-    document.getElementById('lifeModalDescription').innerText = description;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  };
-
-  window.closeLifeModal = function() {
-    const modal = document.getElementById('lifeModal');
-    if (!modal) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.getElementById('lifeModalTitle').innerText = '';
-    document.getElementById('lifeModalImage').src = '';
-    document.getElementById('lifeModalDescription').innerText = '';
-  };
-
-  // Close modal on outside click
-  const lifeModal = document.getElementById('lifeModal');
-  if (lifeModal) {
-    lifeModal.addEventListener('click', function(e) {
-      if (e.target === lifeModal) {
-        window.closeLifeModal();
-      }
-    });
-  }
-
-  // =========================================================
-  // BACK TO TOP BUTTON - SIMPLE VERSION
-  // =========================================================
-  const backToTopBtn = document.getElementById('backToTop');
-  
-  if (backToTopBtn) {
-    // Simple back-to-top functionality
-    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopBtn.setAttribute('title', 'Back to top');
-    
-    backToTopBtn.onclick = function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    };
-    
-    // Show/hide based on scroll position
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'flex';
-        backToTopBtn.classList.remove('hidden');
-      } else {
-        backToTopBtn.style.display = 'none';
-        backToTopBtn.classList.add('hidden');
-      }
-    });
-    
-    // Initial check
-    if (window.scrollY > 300) {
-      backToTopBtn.style.display = 'flex';
-      backToTopBtn.classList.remove('hidden');
-    }
-  }
-
-  // =========================================================
-  // LIFE GALLERY MODALS - ALL IMAGES INCLUDED
+  // LIFE GALLERY MODALS
   // =========================================================
   
   window.openPersonalGallery = function() {
@@ -490,7 +579,10 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Engaging in professional networking and community events in Edwardsville to expand industry connections.'
       }
     ];
-    
+    setTimeout(() => {
+      const modal = document.getElementById('lifeGalleryModal');
+      if (modal) modal.scrollTop = 0;
+    }, 20);
     openLifeGallery('Personal Moments', photos);
   };
   
@@ -609,7 +701,10 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Studying urban development and technological innovation in major metropolitan centers like Chicago.'
       }
     ];
-    
+    setTimeout(() => {
+      const modal = document.getElementById('lifeGalleryModal');
+      if (modal) modal.scrollTop = 0;
+    }, 20);
     openLifeGallery('Travel & Exploration', photos);
   };
   
@@ -646,11 +741,15 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Applying technical knowledge and mechanical understanding during off-road vehicle operations.'
       }
     ];
-    
+    setTimeout(() => {
+      const modal = document.getElementById('lifeGalleryModal');
+      if (modal) modal.scrollTop = 0;
+    }, 20);
     openLifeGallery('Sports & Activities', photos);
   };
   
   function openLifeGallery(title, photos) {
+    closeAllModals();
     const modal = document.getElementById('lifeGalleryModal');
     const modalTitle = document.getElementById('lifeGalleryTitle');
     const galleryContent = document.getElementById('lifeGalleryContent');
@@ -660,38 +759,39 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     
+    // Clear and set title
     modalTitle.textContent = title;
     galleryContent.innerHTML = '';
     
+    // Build gallery content
     if (photos && photos.length > 0) {
       const gridContainer = document.createElement('div');
-      gridContainer.className = 'grid grid-cols-1 md:grid-cols-2 gap-6';
+      gridContainer.className = 'grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6';
       
       photos.forEach((photo) => {
         const photoItem = document.createElement('div');
-        photoItem.className = 'flex flex-col';
+        photoItem.className = 'life-gallery-image-container';
         
         const img = document.createElement('img');
         img.src = photo.src;
         img.alt = photo.title;
-        img.className = 'w-full h-80 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300';
+        img.className = 'life-gallery-image';
         
-        img.onerror = function() {
-          console.warn(`Failed to load image: ${photo.src}`);
-          photoItem.style.display = 'none';
-        };
+        const overlay = document.createElement('div');
+        overlay.className = 'life-gallery-hover-overlay';
         
         const titleEl = document.createElement('h3');
-        titleEl.className = 'text-gray-900 font-bold text-base mt-3';
+        titleEl.className = 'life-gallery-hover-title';
         titleEl.textContent = photo.title;
         
         const description = document.createElement('p');
-        description.className = 'text-gray-600 text-sm mt-1 italic';
+        description.className = 'life-gallery-hover-description';
         description.textContent = photo.description;
         
+        overlay.appendChild(titleEl);
+        overlay.appendChild(description);
         photoItem.appendChild(img);
-        photoItem.appendChild(titleEl);
-        photoItem.appendChild(description);
+        photoItem.appendChild(overlay);
         gridContainer.appendChild(photoItem);
       });
       
@@ -703,30 +803,120 @@ document.addEventListener('DOMContentLoaded', function () {
       galleryContent.appendChild(msg);
     }
     
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    // Show modal
+    modal.style.display = 'flex';
+    modal.classList.add('show');
+    lockBodyScroll();
+    currentModal = 'lifeGalleryModal';
+    
+    // THE FIX: Scroll everything to top after showing
+    setTimeout(() => {
+      // Scroll the modal container to top
+      modal.scrollTop = 0;
+      // Scroll the content area to top
+      galleryContent.scrollTop = 0;
+    }, 10);
+    
+    // Add click outside to close
+    setTimeout(() => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeLifeGallery();
+        }
+      });
+    }, 100);
   }
   
   window.closeLifeGallery = function() {
     const modal = document.getElementById('lifeGalleryModal');
     if (!modal) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
+    modal.style.display = 'none';
+    modal.classList.remove('show');
+    unlockBodyScroll();
+    currentModal = null;
   };
+
+  // =========================================================
+  // ADDITIONAL COMPETENCIES COLOR FIX
+  // =========================================================
+  const mentoringElements = document.querySelectorAll('.bg-teal-100.text-teal-800');
+  mentoringElements.forEach(element => {
+    element.classList.add('hover:bg-teal-200');
+  });
+
+  // =========================================================
+  // PROJECT CARD ENHANCEMENTS
+  // =========================================================
+  const projectItems = document.querySelectorAll('.project-item');
   
-  // Close modal on outside click - only when clicking the backdrop
-  const lifeGalleryModal = document.getElementById('lifeGalleryModal');
-  if (lifeGalleryModal) {
-    lifeGalleryModal.addEventListener('click', function(e) {
-      if (e.target === lifeGalleryModal) {
-        window.closeLifeGallery();
+  projectItems.forEach((item, index) => {
+    // Add click animation
+    item.addEventListener('click', function() {
+      this.style.transform = 'translateY(-5px) scale(0.99)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+    
+    // Add keyboard navigation
+    item.setAttribute('tabindex', '0');
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
       }
     });
+  });
+
+  // =========================================================
+  // IMPROVED MODAL SCROLLING
+  // =========================================================
+  function ensureModalHeaderVisible(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    
+    // Scroll modal container to top
+    modal.scrollTop = 0;
+    
+    // Also ensure the content inside is scrolled to top
+    const contentDiv = modal.querySelector('div:last-child');
+    if (contentDiv) {
+      contentDiv.scrollTop = 0;
+    }
   }
+
+  // Update project modal opening to ensure visibility
+  const originalOpenProjectModal = window.openProjectModal;
+  window.openProjectModal = function() {
+    originalOpenProjectModal();
+    setTimeout(() => ensureModalHeaderVisible('projectModal'), 50);
+  };
+
+  const originalOpenBIProjectModal = window.openBIProjectModal;
+  window.openBIProjectModal = function() {
+    originalOpenBIProjectModal();
+    setTimeout(() => ensureModalHeaderVisible('biProjectModal'), 50);
+  };
+
+  const originalOpenCyberProjectModal = window.openCyberProjectModal;
+  window.openCyberProjectModal = function() {
+    originalOpenCyberProjectModal();
+    setTimeout(() => ensureModalHeaderVisible('cyberProjectModal'), 50);
+  };
+
+  const originalOpenDBProjectModal = window.openDBProjectModal;
+  window.openDBProjectModal = function() {
+    originalOpenDBProjectModal();
+    setTimeout(() => ensureModalHeaderVisible('dbProjectModal'), 50);
+  };
+
+  // =========================================================
+  // INITIALIZE ON LOAD
+  // =========================================================
+  highlightActiveSection();
   
-  // Make sure modal is hidden on page load
-  if (lifeGalleryModal) {
-    lifeGalleryModal.classList.add('hidden');
-    lifeGalleryModal.classList.remove('flex');
-  }
+  // Save initial scroll position
+  setTimeout(() => {
+    sessionStorage.setItem('scrollPosition', window.scrollY);
+  }, 500);
 });
