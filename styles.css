@@ -1,3 +1,43 @@
+/* ===== Compelling Bullets for Academic & Graduate Appointments Section ===== */
+#academic-experience ul li {
+  position: relative;
+  padding-left: 1.7em;
+  margin-bottom: 0.5em;
+  list-style: none;
+}
+#academic-experience ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-size: 1.1em;
+  color: #059669; /* Tailwind emerald-600 for academic distinction */
+  font-weight: bold;
+  transition: color 0.2s;
+}
+#academic-experience ul li:hover::before {
+  color: #f59e42; /* Tailwind orange-400 for hover effect */
+}
+/* ===== Compelling Bullets for Professional Experience Section ===== */
+#experience ul li {
+  position: relative;
+  padding-left: 1.7em;
+  margin-bottom: 0.5em;
+  list-style: none;
+}
+#experience ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-size: 1.1em;
+  color: #2563eb; /* Tailwind blue-600 */
+  font-weight: bold;
+  transition: color 0.2s;
+}
+#experience ul li:hover::before {
+  color: #f59e42; /* Tailwind orange-400 for hover effect */
+}
 /* =========================================================
    BASE
    ========================================================= */

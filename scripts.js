@@ -538,45 +538,45 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // =========================================================
-  // LIFE GALLERY MODALS
+  // LIFE GALLERY MODALS - UPDATED WITH NATURAL DESCRIPTIONS
   // =========================================================
   
   window.openPersonalGallery = function() {
     const photos = [
       {
         src: 'images/personal_section/Rosh_Alton_2024_1.jpg',
-        title: 'Exploring Historic Alton',
-        description: 'Discovering the rich history and architecture of Alton, Illinois while building connections in the local community.'
+        title: 'Exploring Alton',
+        description: 'Walking through downtown Alton and checking out the historic buildings and riverfront.'
       },
       {
         src: 'images/personal_section/Rosh_Alton_2024_2.jpg',
-        title: 'Alton Community Engagement',
-        description: 'Networking and engaging with community members in downtown Alton, demonstrating strong interpersonal skills.'
+        title: 'Downtown Alton',
+        description: 'Spending an afternoon in Alton, getting to know the local shops and meeting people from the area.'
       },
       {
         src: 'images/personal_section/Rosh_Cougar_Lake_2024.jpg',
-        title: 'Strategic Reflection at Cougar Lake',
-        description: 'Taking time for strategic thinking and planning by the peaceful Cougar Lake, balancing work with mindfulness.'
+        title: 'Cougar Lake',
+        description: 'A peaceful evening at Cougar Lake, one of my favorite spots near campus for clearing my head.'
       },
       {
         src: 'images/personal_section/Roshan_HorshoeLake_Aug2024.jpg',
-        title: 'Team Building at Horseshoe Lake',
-        description: 'Developing team collaboration skills during a summer gathering at Horseshoe Lake in August 2024.'
+        title: 'Horseshoe Lake Summer',
+        description: 'Summer gathering at Horseshoe Lake with friends in August 2024. Great way to unwind after a busy semester.'
       },
       {
         src: 'images/personal_section/Rosh_in_snow_1.jpg',
-        title: 'Adapting to Challenges',
-        description: 'Demonstrating adaptability and resilience while navigating challenging conditions during winter in Illinois.'
+        title: 'First Illinois Winter',
+        description: 'My first real winter in Illinois - definitely took some getting used to compared to back home.'
       },
       {
         src: 'images/personal_section/Rosh_in_snow_2.jpg',
-        title: 'Perseverance in Adverse Conditions',
-        description: 'Showing determination and problem-solving skills in snowy environments, qualities that translate to project challenges.'
+        title: 'Snow Day',
+        description: 'Another snowy day. Still adjusting to this weather but learning to appreciate the change of seasons.'
       },
       {
         src: 'images/personal_section/Rosh_Edwardsville_Sep2024.JPG',
-        title: 'Professional Development in Edwardsville',
-        description: 'Engaging in professional networking and community events in Edwardsville to expand industry connections.'
+        title: 'Edwardsville Event',
+        description: 'At a local event in Edwardsville, September 2024. Always good to connect with the community outside of campus.'
       }
     ];
     setTimeout(() => {
@@ -590,33 +590,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const photos = [
       {
         src: 'images/personal_section/Rosh_Speaking.jpg',
-        title: 'Technical Presentation Delivery',
-        description: 'Confidently presenting complex technical concepts to diverse audiences, showcasing communication and leadership skills.'
+        title: 'Presenting Research',
+        description: 'Sharing some of my project work. Public speaking used to make me nervous, but I\'ve gotten more comfortable with it.'
       },
       {
         src: 'images/personal_section/Rosh_SIUE_One.jpg',
-        title: 'SIUE Campus Collaboration',
-        description: 'Collaborating with peers on the SIUE campus, fostering teamwork and knowledge-sharing in academic environments.'
+        title: 'Campus Life',
+        description: 'Posing with SIUE Mascot Eddie.'
       },
       {
         src: 'images/personal_section/Rosh_SIUE_2.jpg',
-        title: 'SIUE Academic Engagement',
-        description: 'Active participation in campus life and academic discussions at Southern Illinois University Edwardsville.'
+        title: 'SIUE Campus',
+        description: 'Another day at SIUE. The campus has become a second home over these past semesters.'
       },
       {
         src: 'images/personal_section/Rosh_Presenting_2.jpg',
-        title: 'Project Demonstration',
-        description: 'Demonstrating project outcomes and technical solutions to faculty and industry professionals.'
+        title: 'Project Demo',
+        description: 'Demonstrating one of our semester projects. Always nerve-wracking but rewarding when it all works.'
       },
       {
         src: 'images/personal_section/Rosh_KU_Graduation_Two.jpg',
-        title: 'Engineering Graduation Achievement',
-        description: 'Celebrating the completion of a rigorous Bachelor of Engineering in Computer Engineering program at Kathmandu University.'
+        title: 'Graduation Day at KU',
+        description: 'Graduating from Kathmandu University with my Computer Engineering degree. Four years of hard work paying off.'
       },
       {
         src: 'images/personal_section/Rosh_KU_Graduation_One.jpg',
-        title: 'Academic Milestone Accomplishment',
-        description: 'Achieving academic excellence and graduating with honors from a prestigious engineering institution.'
+        title: 'KU Graduation',
+        description: 'Celebrating graduation with friends and family. Proud moment after years of late nights and tough exams.'
       }
     ];
     
@@ -627,78 +627,78 @@ document.addEventListener('DOMContentLoaded', function () {
     const photos = [
       {
         src: 'images/personal_section/Rosh_Manali_India.1.jpg',
-        title: 'Strategic Planning in Manali',
-        description: 'Developing strategic thinking skills while navigating complex mountain terrains in Manali, India.'
+        title: 'Manali Mountains',
+        description: 'Hiking in Manali, India. The Himalayas never get old - every trip feels like a new adventure.'
       },
       {
         src: 'images/personal_section/Rosh_Manali_India_2.jpg',
-        title: 'Risk Assessment in Himalayas',
-        description: 'Applying risk assessment and management skills during challenging treks in the Himalayan region.'
+        title: 'Mountain Trek',
+        description: 'Higher up in the mountains near Manali. The air gets thin up here but the views are worth it.'
       },
       {
         src: 'images/personal_section/Rosh_Manali_India.jpg',
-        title: 'Adapting to New Environments',
-        description: 'Demonstrating adaptability and quick learning in unfamiliar cultural and geographical settings.'
+        title: 'Himalayan Journey',
+        description: 'Exploring the mountain roads. These trips remind me why I love traveling - seeing new places, meeting new people.'
       },
       {
         src: 'images/personal_section/Rosh_Kurintar.jpg',
-        title: 'Problem Solving in Kurintar',
-        description: 'Applying analytical thinking to navigate and overcome challenges in diverse outdoor settings.'
+        title: 'Kurintar Views',
+        description: 'Stopping at Kurintar on a road trip. Small towns like this have their own charm.'
       },
       {
         src: 'images/personal_section/Rosh_Kalinchowk_Two.jpg',
-        title: 'Goal-Oriented Trekking',
-        description: 'Setting and achieving challenging goals during demanding treks to high-altitude destinations.'
+        title: 'Kalinchowk Trek',
+        description: 'Made it to Kalinchowk after a long hike. These treks push you physically but clear your mind completely.'
       },
       {
         src: 'images/personal_section/Rosh_Kalinchowk_Snow.jpg',
-        title: 'Resilience in Extreme Conditions',
-        description: 'Building resilience and determination while operating in challenging, high-stakes environments.'
+        title: 'Snow at Kalinchowk',
+        description: 'Winter trekking at Kalinchowk. Cold and challenging, but that\'s part of what makes it memorable.'
       },
       {
         src: 'images/personal_section/Rosh_in_woods.jpg',
-        title: 'Strategic Navigation Skills',
-        description: 'Developing strong navigation and orientation skills during exploratory forest expeditions.'
+        title: 'Forest Trail',
+        description: 'Getting lost (not really) in the woods. Sometimes you just need to disconnect and wander.'
       },
       {
         src: 'images/personal_section/Rosh_In_the_woods.jpg',
-        title: 'Systematic Outdoor Planning',
-        description: 'Applying systematic thinking and planning during extended outdoor navigation challenges.'
+        title: 'Among the Trees',
+        description: 'More forest exploring. There\'s something peaceful about being surrounded by trees and quiet.'
       },
       {
         src: 'images/personal_section/Rosh_Chitwan.jpg',
-        title: 'Wildlife Conservation Awareness',
-        description: 'Gaining appreciation for biodiversity and environmental conservation at Chitwan National Park.'
+        title: 'Chitwan National Park',
+        description: 'At Chitwan checking out the wildlife. Saw some incredible animals and learned about conservation efforts there.'
       },
       {
         src: 'images/personal_section/Rosh_Chitlang.jpg',
-        title: 'Cultural Immersion Experience',
-        description: 'Engaging with diverse cultures and communities during travels through rural Nepal.'
+        title: 'Chitlang Village',
+        description: 'Visiting Chitlang, a small village outside Kathmandu. Life moves slower here, which is refreshing.'
       },
       {
         src: 'images/personal_section/Rosh_Chitlang_3.jpg',
-        title: 'Rural Community Engagement',
-        description: 'Building cross-cultural communication skills while interacting with local communities in Chitlang.'
+        title: 'Rural Nepal',
+        description: 'Spending time in rural areas gives you a different perspective. The hospitality in these villages is incredible.'
       },
       {
         src: 'images/personal_section/Rosh_Brewery_Tour.jpg',
-        title: 'Industrial Process Observation',
-        description: 'Studying operational processes and quality control during an educational brewery tour.'
+        title: 'Brewery Visit',
+        description: 'Touring a local brewery. Interesting to see the process behind the scenes and learn about the craft.'
       },
       {
         src: 'images/personal_section/Rosh_Mustang.jpg',
-        title: 'Remote Area Exploration',
-        description: 'Developing self-reliance and resource management skills during expeditions to remote regions.'
+        title: 'Mustang Region',
+        description: 'Out in Mustang, one of the most remote areas I\'ve visited. Felt like stepping into another world.'
       },
       {
         src: 'images/personal_section/Rosh_Selfie_1.jpg',
-        title: 'Global Perspective Development',
-        description: 'Building a global mindset through diverse travel experiences across different continents.'
+        title: 'On the Road',
+        description: 'Quick selfie during one of many trips. Traveling has taught me to be flexible and embrace the unexpected.'
       },
       {
         src: 'images/personal_section/Rosh_Chicago.jpg',
-        title: 'Urban Innovation Exploration',
-        description: 'Studying urban development and technological innovation in major metropolitan centers like Chicago.'
+        title: 'Chicago Visit',
+        description: 'Exploring Chicago for the first time. Big change from the mountains, but cities have their own energy.'
       }
     ];
     setTimeout(() => {
@@ -712,33 +712,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const photos = [
       {
         src: 'images/personal_section/Rosh_Dirt_Bike.jpg',
-        title: 'Risk Management in Action',
-        description: 'Applying calculated risk assessment and quick decision-making during high-adrenaline dirt biking.'
+        title: 'Dirt Biking',
+        description: 'First time on a dirt bike. Little scary at first but once you get the hang of it, it\'s a rush.'
       },
       {
         src: 'images/personal_section/Rosh_Boating.jpg',
-        title: 'Water Navigation Leadership',
-        description: 'Demonstrating leadership and coordination skills while managing water-based activities and safety protocols.'
+        title: 'Out on the Water',
+        description: 'Boating with friends. These are the days you look back on and smile.'
       },
       {
         src: 'images/personal_section/Rosh_Blood_Donation.jpg',
-        title: 'Community Service Commitment',
-        description: 'Demonstrating social responsibility and commitment to community welfare through regular blood donation.'
+        title: 'Blood Donation',
+        description: 'Donating blood at a local drive. Small thing to do but it can make a real difference.'
       },
       {
         src: 'images/personal_section/Rosh_Waterfall_Chitlang.jpg',
-        title: 'Exploratory Research Skills',
-        description: 'Applying investigative and research skills during exploratory trips to natural landmarks and formations.'
+        title: 'Chitlang Waterfall',
+        description: 'Found this waterfall while hiking near Chitlang. Worth the extra miles off the main trail.'
       },
       {
         src: 'images/personal_section/Rosh_Cricket.jpg',
-        title: 'Team Strategy Development',
-        description: 'Building teamwork, strategy development, and competitive spirit through organized sports participation.'
+        title: 'Cricket Match',
+        description: 'Playing cricket with friends. Grew up with this game, so it always feels like home when we play.'
       },
       {
         src: 'images/personal_section/Rosh_Force_Car.jpg',
-        title: 'Technical Vehicle Operation',
-        description: 'Applying technical knowledge and mechanical understanding during off-road vehicle operations.'
+        title: 'Off-Roading',
+        description: 'Taking this Force out for some off-road driving. Challenging terrain but the vehicle handled it well.'
       }
     ];
     setTimeout(() => {
