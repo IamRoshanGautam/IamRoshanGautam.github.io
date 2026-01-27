@@ -574,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
         description: 'Showing determination and problem-solving skills in snowy environments, qualities that translate to project challenges.'
       },
       {
-        src: 'images/personal_section/Rosh_Edwardsville_Sep2024.jpg',
+        src: 'images/personal_section/Rosh_Edwardsville_Sep2024.JPG',
         title: 'Professional Development in Edwardsville',
         description: 'Engaging in professional networking and community events in Edwardsville to expand industry connections.'
       }
