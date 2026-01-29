@@ -1,3 +1,16 @@
+// Dynamically set the subject to include the submitter's name for the contact form
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('portfolioContactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      var name = form.querySelector('input[name="name"]').value.trim();
+      var subjectInput = form.querySelector('input[name="_subject"]');
+      if (name && subjectInput) {
+        subjectInput.value = 'New message from Portfolio Contact Form - ' + name;
+      }
+    });
+  }
+});
 document.addEventListener('DOMContentLoaded', function () {
   // Always go to homepage when clicking the Rosh logo
   const logoLink = document.querySelector('.nav-logo');

@@ -60,7 +60,7 @@
   <a href="#affiliations" class="nav-link" title="Professional Affiliations">
     <span class="nav-link-text">Affiliations</span>
   </a>
-  <a href="#contact" class="nav-link" title="Contact">
+  <a href="#contact-form" class="nav-link" title="Contact">
     <span class="nav-link-text">Contact</span>
   </a>
   <a href="#beyond-work" class="nav-link" title="Life in Action">
@@ -107,7 +107,7 @@
           <a href="#workshops" class="mobile-nav-link">Workshops Delivered</a>
           <a href="#research-projects" class="mobile-nav-link">Academic Projects</a>
           <a href="#affiliations" class="mobile-nav-link">Professional Affiliations</a>
-          <a href="#contact" class="mobile-nav-link">Contact</a>
+          <a href="#contact-form" class="mobile-nav-link">Contact</a>
           <a href="#beyond-work" class="mobile-nav-link">Life in Action</a>
           <!-- Mobile Download Resume Button -->
           <a href="documents/Roshan_Gautam_Resume.pdf" 
@@ -127,7 +127,7 @@
       <!-- Hero Section -->
       <header class="hero bg-gradient-to-r from-blue-500 to-green-500 text-white py-16">
     <div class="container mx-auto text-center px-4">
-      <img src="images/Roshan_Hero_Image.jpg" alt="Roshan Gautam" class="hero-image mx-auto mb-6 rounded-full shadow-lg">
+      <img src="images/Roshan_Hero_Image.png" alt="Roshan Gautam" class="hero-image mx-auto mb-6 rounded-full shadow-lg">
       <div class="flex items-center justify-center mb-4">
   <span class="wave-emoji text-4xl md:text-5xl mr-3">👋</span>
   <h1 class="text-4xl md:text-5xl font-bold">I am Rosh</h1>
@@ -139,6 +139,10 @@
         <a href="#about" class="btn-primary px-6 py-2.5 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition inline-flex items-center gap-2">
           Explore My Journey
         </a>
+        <button type="button" class="leave-message-hero-btn" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth', block: 'center'});">
+          <svg class="leave-message-hero-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm2 0v.511l7 6.222 7-6.222V5H5zm14 2.489-6.646 5.91a1 1 0 0 1-1.308 0L5 7.489V19h14V7.489z" fill="#fff"/></svg>
+          <span>Leave me a message</span>
+        </button>
         <a href="documents/Roshan_Gautam_Resume.pdf" download class="btn-secondary px-6 py-2.5 bg-transparent border-2 border-white text-white rounded-lg font-bold hover:bg-white hover:text-blue-600 transition inline-flex items-center gap-2">
           <i class="fas fa-download"></i>
           Download Resume
@@ -1005,6 +1009,71 @@
       </div>
 
       <!-- Footer -->
+
+      <!-- Contact Form Section - State of the Art Responsive Design -->
+      <section id="contact-form">
+        <div class="contact-form-bg-svg">
+          <svg class="contact-form-svg-blue" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#1E90FF"/></svg>
+          <svg class="contact-form-svg-green" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#32CD32"/></svg>
+        </div>
+        <div class="contact-form-container">
+          <h2 class="contact-form-title">Get in Touch</h2>
+          <form id="portfolioContactForm" action="https://formsubmit.co/roshangautam356@gmail.com" method="POST" class="contact-form-main">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" id="_subject" name="_subject" value="New message from Portfolio Contact Form">
+            <div class="contact-form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="contact-form-field">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com">
+            </div>
+            <div class="contact-form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Type your message..."></textarea>
+              <div id="emoji-picker" class="emoji-picker">
+                <span class="emoji-option" title="Smile">😊</span>
+                <span class="emoji-option" title="Thumbs Up">👍</span>
+                <span class="emoji-option" title="Rocket">🚀</span>
+                <span class="emoji-option" title="Party">🎉</span>
+                <span class="emoji-option" title="Handshake">🤝</span>
+                <span class="emoji-option" title="Star">⭐</span>
+                <span class="emoji-option" title="Heart">❤️</span>
+                <span class="emoji-option" title="Lightbulb">💡</span>
+                <span class="emoji-option" title="Fire">🔥</span>
+                <span class="emoji-option" title="Clap">👏</span>
+              </div>
+            </div>
+                <script>
+                  // Emoji picker logic for contact form
+                  document.addEventListener('DOMContentLoaded', function () {
+                    var picker = document.getElementById('emoji-picker');
+                    var textarea = document.getElementById('message');
+                    if (picker && textarea) {
+                      picker.addEventListener('click', function (e) {
+                        if (e.target.classList.contains('emoji-option')) {
+                          // Insert emoji at cursor position
+                          var emoji = e.target.textContent;
+                          var start = textarea.selectionStart;
+                          var end = textarea.selectionEnd;
+                          var value = textarea.value;
+                          textarea.value = value.substring(0, start) + emoji + value.substring(end);
+                          textarea.focus();
+                          textarea.selectionStart = textarea.selectionEnd = start + emoji.length;
+                        }
+                      });
+                    }
+                  });
+                </script>
+            <button type="submit" class="contact-form-submit">
+              <i class="ri-send-plane-2-fill"></i> Send Message to Rosh
+            </button>
+          </form>
+        </div>
+      </section>
+
       <footer class="bg-gray-900 text-white py-8" id="contact">
         <div class="container mx-auto px-4">
           <h2 class="text-2xl font-bold mb-6 text-center gradient-text">Let's Connect</h2>
