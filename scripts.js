@@ -630,9 +630,34 @@ document.addEventListener('DOMContentLoaded', function () {
         src: 'images/personal_section/Rosh_KU_Graduation_One.jpg',
         title: 'KU Graduation',
         description: 'Celebrating graduation with friends and family. Proud moment after years of late nights and tough exams.'
+      },
+      {
+        src: 'images/personal_section/Rosh_MUC_Grad_Day_1.jpg',
+        title: 'SIUE Graduation Day',
+        description: 'Graduation day at SIUE — completing my M.S. in Management Information Systems with a 4.0 GPA on May 8, 2026.'
+      },
+      {
+        src: 'images/personal_section/Rosh_MUC_Grad_Day_2.jpg',
+        title: 'Commencement Celebration',
+        description: 'Celebrating the milestone with the cohort. Two years of late nights, research, and coursework — all worth it.'
+      },
+      {
+        src: 'images/personal_section/Hooding_Dean-RoshanGautam.JPG',
+        title: 'Hooding Ceremony',
+        description: 'The hooding moment with the Dean — the highlight of the commencement ceremony and a proud milestone.'
+      },
+      {
+        src: 'images/personal_section/Rosh_Commencement_Image_1.png',
+        title: 'Commencement',
+        description: 'Walking across the stage at SIUE commencement, May 2026.'
+      },
+      {
+        src: 'images/personal_section/Rosh_Commencement_Image_2.png',
+        title: 'Commencement Ceremony',
+        description: 'Another proud moment from the SIUE commencement ceremony.'
       }
     ];
-    
+
     openLifeGallery('Academic Life', photos);
   };
   
